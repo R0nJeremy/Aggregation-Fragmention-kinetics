@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.6.20)  23 JUN 2023 14:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.6.20)  23 JUN 2023 19:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -208,20 +208,27 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 \openout3 = `agg_frag_kineticsNotes.bib'.
 
- (./agg_frag_kinetics.bbl) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./agg_frag_kinetics.aux) ) 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (./agg_frag_kinetics.bbl) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./agg_frag_kinetics.aux) ) 
 Here is how much of TeX's memory you used:
- 4523 strings out of 476182
- 61626 string characters out of 5796581
- 1848793 words of memory out of 6000000
- 24845 multiletter control sequences out of 15000+600000
- 512894 words of font info for 34 fonts, out of 8000000 for 9000
+ 4574 strings out of 476182
+ 62337 string characters out of 5796581
+ 1854793 words of memory out of 6000000
+ 24873 multiletter control sequences out of 15000+600000
+ 517696 words of font info for 52 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 87i,5n,91p,423b,117s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on agg_frag_kinetics.pdf (1 page, 17698 bytes).
+ 87i,5n,91p,423b,131s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on agg_frag_kinetics.pdf (1 page, 96775 bytes).
 PDF statistics:
- 18 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
+ 53 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
