@@ -1,59 +1,98 @@
 \documentclass[aps,prl,preprint,groupedaddress,10pt]{revtex4-2}
 \usepackage{notations}
+\usepackage{tikz}
+
 
 \begin{document}
 \section{The mechanics of binary interactions}
 Our system comprises an infinite number of mechanically identical, spherical particles 
-known as monomers. These particles have masses $m_1$ and radii $R_1$. Although their 
-masses are quite small, they can interact with each other gravitationally. When two 
+known as monomers. These particles have masses $m_1$ and radii $R_1$. When two 
 monomers collide, they lose a certain amount of impact energy and rebound with a 
 coefficient of restitution $\eps$. If the impact energy is below a specific threshold 
 value $\ltx{E}{imp}\leqslant\ltx{E}{agg}$, the monomers stick together due to surface 
 forces like van der Waals forces, forming a larger aggregate particle with mass $m_2$ 
 and radius $R_2$. This process is known as \emph{aggregation} and allows the creation 
-of larger particles from individual monomers.
+of larger particles from individual monomers. A particle of mass $m_k$ is an aggregate
+of $k$ monomers, hence $m_k=k\cdot m_1$. We assume that the aggregates remain 
+spherically shaped, and their radii scale as $R_k\sim m_k^{1/3}\sim k^{1/3}$.
 
 Conversely, there is another mechanism called \emph{fragmentation} that decreases the 
 sizes of aggregates. If the impact energy is higher than a certain threshold value 
 $\ltx{E}{imp}\geqslant\ltx{E}{frag}$, the colliding aggregates break into smaller pieces.
+The size distribution of the fragmented pieces are difficult to model analytically, and
+in this work we assume a simplistic model of fragmentation, called \emph{shattering}.
+When two aggregates of masses $m_i$ and $m_j$ collide with a sufficient energy, both 
+of them shatter into singular monomers, $m_i\to i\cdot m_1$ and $m_j\to j\cdot m_1$.
 
-\subsection{Distribution function}
-The statistical description of the system is given by 
-
-\subsection{Collision mechanics}
-We consider a collision of two particles of masses $m_i$, $m_j$, and velocities $\bv_i$, 
-$\bv_j$. If the particles did not exert gravitational influence, the collision 
-geometry would have been a linear problem. However, the gravitational interaction of 
-the particles result in a deflection of the trajectories of motion, aka 
-\emph{gravitational focusing}. To analyze the collision mechanics of two gravitationally 
-interacting bodies, let us reformulate the problem into a mathematically equivalent one.
-Consider a point size particle with mass $\mu=m_im_j/M$ and velocity $\bg_0=\bv_i-\bv_j$, 
-that moves in a gravitational field of a stationary body of mass $M=m_i+m_j$ and radius 
-$R=R_i+R_j$. The collision happens if the point mass falls onto the surface of the 
-stationary body. Let us introduce a parameter $b$, which is a distance from the center of 
-the stationary mass to the trajectory asymptote of the moving particle. The vector $\bb$
-is then orthogonal to the velocity $\bg$. There is a certain value of this parameter 
-$\lmax{b}$, which defines the collision threshold, e.g. when the impact parameter $b$
-is smaller than this threshold value, the moving particle falls onto the surface of the 
-stationary body. The value of this threshold value is
+Let us consider a collision of two particles of masses $m_i$, $m_j$, and velocities 
+$\bv_i$, $\bv_j$ and radii $R_i$, $R_j$ in the center of mass system (CoM), which moves 
+with velocity $\bV=\mu_i\bv_i+\mu_j\bv_j$, where $\mu_i=m_i/M$, $\mu_j=m_j/M$ and 
+$M=m_i+m_j$. The velocities of particles in the CoM are 
 \begin{equation}
-    \lmax{b}\pqty{g_0}=R\sqrt{1+\frac{2GM}{Rg_0^2}},
+    \bv_{ci}=\mu_j\bg,\qquad\bv_{cj}=-\mu_i\bg,
 \end{equation}
-where $G$ is the gravitational constant. The value of the relative velocity $g_0$ is 
-considered at infinity, hence at the point of impact, the relative speed, or in other 
-words, the impact speed $g$ is 
+where $\bg=\bv_i-\bv_j$ is the relative velocity. Obviously, both particles in the CoM
+have equal amounts of momenta, but oppositely directed
 \begin{equation}
-    g = g_0\sqrt{1+\frac{2GM}{Rg_0^2}},
+    \bp_{ci}=\mu\bg=\bp,\qquad\bp_{cj}=-\mu\bg=-\bp,
 \end{equation}
-slightly larger than $g_0$. The point of impact on the surface of the stationary body 
-can be represented by a unit vector $\be$, pointing from the center of the body. However,
-the actual impact speed does not depend on $\be$, i.e. as long as the impact parameter 
-of the point mass particle is less than the threshold value $\lmax{b}$, 
-it falls onto the surface of the stationary body with the same speed $g$ 
-for any value $b$ of the impact parameter, due to energy conservation and spherical shape
-of the body.
+where $\mu=m_j\mu_i=m_i\mu_j$ is the reduced mass. In the CoM, the relative velocity 
+vector is 
 
-\subsection{Aggregation mechanics}
+The impact energy is then
+\begin{equation}
+    \ltx{E}{imp}=\frac{p^2}{2\mu}=\frac{\mu g^2}{2}.
+\end{equation}
+
+The outcome of the collision depends on the value of $\ltx{E}{imp}$. Let us discuss each 
+case in more details.
+
+\subsection{Restitution}
+In general, when two particles collide, they rebound from each other and lose some amount
+of energy, which is given by the restitution coefficient $\eps$. The post-collisional 
+velocities of the colliding particles are given by
+\begin{equation}
+    \begin{split}
+        \bv_i'&=\bv_i-\mu_j\pqty{1+\eps}\pqty{\bg\vdot\be}\be,\\
+        \bv_j'&=\bv_j+\mu_i\pqty{1+\eps}\pqty{\bg\vdot\be}\be,
+    \end{split}
+\end{equation}
+where $\be$ is the unit vector of the impact geometry, e.g. the unit vector pointing 
+from the center of the first particle to the center of the second particle at the moment
+of the collision
+\begin{equation}
+    \be=\frac{\br_i-\br_j}{R_i+R_j}.
+\end{equation}
+
+\subsection{Aggregation}
+If the impact energy is smaller than a certain threshold 
+$\ltx{E}{imp}\leqslant\ltx{E}{agg}$, the outcome of the collision is merging of two 
+particles. From the momentum conservation we can write the outcome of the aggregative 
+collision, which is a single particle with a mass and velocity
+\begin{equation}
+    m'=m_i+m_j\qquad\bv'=\bV=\frac{m_i\bv_i+m_j\bv_j}{m_i+m_j}.
+\end{equation}
+The total energy loss is 
+\begin{equation}    
+        \Delta E=\frac{MV^2}{2}-\frac{m_iv_i^2}{2}-\frac{m_jv_j^2}{2}
+        =-\frac{\mu g^2}{2}=-\ltx{E}{imp},
+\end{equation}
+so, all the impact energy is lost during the aggregative collision.
+The threshold energy value $\ltx{E}{agg}$ is in general a function of the sizes of 
+particles.
+
+\subsection{Fragmentation}
+If the impact energy exceeds the certain threshold value 
+$\ltx{E}{imp}\geqslant\ltx{E}{frag}$, the two impactors break into into smaller
+particles in the collision.
+We cannot obtain the velocities of the monomers from only conservation laws, hence 
+we have to assume that certain constraints are valid. Namely, we assume two 
+constraints:
+\begin{enumerate}
+    \item Both particles shatter into their constituent monomers;
+    \item Complete isotropy of the momenta of the monomers in CoM;
+\end{enumerate}
+These two constraints allow us to write the outcome velocities of the fragmented pieces.
 
 
 
