@@ -25,18 +25,18 @@ When two aggregates of masses $m_i$ and $m_j$ collide with a sufficient energy, 
 of them shatter into singular monomers, $m_i\to i\cdot m_1$ and $m_j\to j\cdot m_1$.
 
 Let us consider a collision of two particles of masses $m_i$, $m_j$, and velocities 
-$\bv_i$, $\bv_j$ and radii $R_i$, $R_j$ in the center of mass system (CoM), which moves 
+$\bv_i$, $\bv_j$ and radii $R_i$, $R_j$ in the center of mass (CoM) frame, which moves 
 with velocity $\bV=\mu_i\bv_i+\mu_j\bv_j$, where $\mu_i=m_i/M$, $\mu_j=m_j/M$ and 
 $M=m_i+m_j$. The velocities of particles in the CoM are 
 \begin{equation}
     \bv_{ci}=\mu_j\bg,\qquad\bv_{cj}=-\mu_i\bg,
 \end{equation}
 where $\bg=\bv_i-\bv_j$ is the relative velocity. Obviously, both particles in the CoM
-have equal amounts of momenta, but oppositely directed
+frame have equal amounts of momenta, but oppositely directed
 \begin{equation}
     \bp_{ci}=\mu\bg=\bp,\qquad\bp_{cj}=-\mu\bg=-\bp,
 \end{equation}
-where $\mu=m_j\mu_i=m_i\mu_j$ is the reduced mass. In the CoM, the relative velocity 
+where $\mu=m_j\mu_i=m_i\mu_j$ is the reduced mass. In the CoM frame, the relative velocity 
 vector is 
 
 The impact energy is then
@@ -90,9 +90,51 @@ we have to assume that certain constraints are valid. Namely, we assume two
 constraints:
 \begin{enumerate}
     \item Both particles shatter into their constituent monomers;
-    \item Complete isotropy of the momenta of the monomers in CoM;
+    \item Complete isotropy of the momenta of the monomers in CoM frame;
 \end{enumerate}
 These two constraints allow us to write the outcome velocities of the fragmented pieces.
+Let us write the energy needed to release a single monomer from a particle as $\gamma$.
+Hence, the total energy needed for a complete decomposition of an aggregate of mass $m_k$
+can be estimated as
+\begin{equation}
+    E_k = \gamma\cdot k.
+\end{equation}
+The fragmentation process of two particles of masses $m_i$ and $m_j$, with velocities
+$\bv_i$ and $\bv_j$ can be then described as a decay of a single particle of mass 
+$m_k=m_i+m_j$ with velocity $\bv_k=\bV=\mu_i\bv_i+\mu_j\bv_j$. The decay energy can 
+be estimated as 
+\begin{equation}
+    \ltx{E}{decay}=\ltx{E}{imp}-\gamma\cdot k,
+\end{equation}
+which is the amount of energy which is equally distributed among all the shattered 
+monomers. From this, we can see that the impact energy should be larger than 
+$\gamma\cdot k$, which can be treated as the threshold energy. In the  frame, each 
+released monomer has an energy 
+\begin{equation}
+    E'_{c}=\frac{m_1v'^2_{c}}{2}=\frac{\mu g^2}{2k}-\gamma,
+\end{equation}
+where $v'_{c}$ is the speed of a monomer in CoM frame
+\begin{equation}
+    v'_{c}=\sqrt{\frac{ij}{\pqty{i+j}^2}\cdot g^2-\frac{2\gamma}{m_1}}.
+\end{equation}
+
+Let us estimate the number of monomers $\dd{N}$ in a small solid angle $\dd{\Omega}$.
+From the second constraint, we deduce that this number has to be proportional to the 
+angle itself, hence 
+\begin{equation}
+    \dd{N}=\frac{k}{4\pi}\dd{\Omega},\qquad k=i+j.
+\end{equation}
+
+In the Lab frame, the speeds of monomers are not equal, but rather uniformly 
+distribution in the range 
+\begin{equation}
+    \lmin{v'}=\abs{\mu_i\bv_i+\mu_j\bv_j}-
+    \sqrt{\frac{ij}{i+j}\cdot g^2-\frac{2\gamma}{m_1}},\qquad
+    \lmax{v'}=\abs{\mu_i\bv_i+\mu_j\bv_j}+
+    \sqrt{\frac{ij}{i+j}\cdot g^2-\frac{2\gamma}{m_1}}.
+\end{equation}
+
+\section{Distribution function}
 
 
 
