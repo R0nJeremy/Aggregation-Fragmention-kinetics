@@ -47,6 +47,40 @@ The impact energy is then
 The outcome of the collision depends on the value of $\ltx{E}{imp}$. Let us discuss each 
 case in more details.
 
+\subsection{Generalized collisions}
+First, let us consider a collision of particles of masses $m_i$, $m_j$ and 
+velocities $\bv_i$, $\bv_j$. In the most general case, we assume that
+the outcome of the collision is a collection of particles with various masses and 
+velocities. Introducing the function $P_k\pqty{\bv}$, which is the number of 
+particles of mass $m_k$ and velocity $\bv$ created after the collision, 
+or in other words, introducing the velocity distribution function of the particles of 
+mass $m_k$. Using this distribution function, we can write the total mass, momentum and 
+energy of particles in the outcome of the generalized collision
+\begin{equation}
+    \begin{split}
+        M &= \sum_{k=1}^{i+j}\int\dd{\bv}m_kP_k\pqty{\bv},\\
+        \bp &= \sum_{k=1}^{i+j}\int\dd{\bv}m_k\bv P_k\pqty{\bv},\\
+        E &= \sum_{k=1}^{i+j}\int\dd{\bv}\frac{m_kv^2}{2}P_k\pqty{\bv}.
+    \end{split}
+\end{equation}
+Here we implied that $k\leqslant i+j$. The total mass and total momentum obey the 
+conservation laws, hence we can write
+\begin{equation}
+    \begin{split}
+        i+j &= \sum_{k=1}^{i+j}k\int\dd{\bv}P_k\pqty{\bv},\\
+        i\bv_i+j\bv_j &= \sum_{k=1}^{i+j}k\int\dd{\bv}\bv P_k\pqty{\bv},\\
+        \frac{i^2v_i^2+\pqty{2\bv_i\vdot\bv_j+1}ij\eps^2g^2+j^2v_j^2}{i+j} &= 
+        \sum_{k=1}^{i+j}k\int\dd{\bv}v^2P_k\pqty{\bv}.
+    \end{split}
+\end{equation}
+Although the total energy does not conserve in a collision, we can estimate the energy 
+loss using the restitution coefficient $\eps$. So, remaining total energy after the 
+collision is 
+\begin{equation}
+    E=\ltx{E}{trans}+\eps^2\ltx{E}{imp}=\frac{MV^2}{2}+\frac{\mu}{2}\eps^2g^2,
+\end{equation}
+which is distributed among the debris. 
+
 \subsection{Restitution}
 In general, when two particles collide, they rebound from each other and lose some amount
 of energy, which is given by the restitution coefficient $\eps$. The post-collisional 
@@ -135,9 +169,68 @@ distribution in the range
 \end{equation}
 
 \section{Distribution function}
+The statistical description of the system is fully described by a set of distribution
+functions $f_k\pqty{\br,\bv,t}$. It is normalized, such that 
+$f_k\pqty{\br,\bv,t}\dd{\br}\dd{\bv}$ gives the number of particles of size $k$
+in the phase space volume $\dd{\Gamma}=\dd{\br}\dd{\bv}$, around the point 
+$\pqty{\br,\bv}$. Hence, integrating over the whole phase space gives us the total
+number of particles of size $k$
+\begin{equation}
+    N_k=\int\dd{\br}\dd{\bv}f_k\pqty{\br,\bv,t}.
+\end{equation}
+The spacial distribution of particles is not very important for us, hence in the following
+we assume that the system is spatially homogeneous, and we use only the velocity
+distribution function $f_k\pqty{\bv,t}$
+\begin{equation}
+    N_k=\int\dd{\br}\int\dd{\bv}f_k\pqty{\bv,t},
+\end{equation}
+hence 
+\begin{equation}
+    n_k\equiv\frac{N_k}{V}=\int\dd{\bv}f_k\pqty{\bv,t},
+\end{equation}
+is the number density of the subsystem of particles with size $k$. The other field 
+functions, such as the mean flow velocity $\bu_k$ or granular temperature $T_k$ 
+can be defined as velocity moments of the distribution function
+\begin{equation}
+    \begin{split}
+        n_k\bu_k &= \int\dd{\bv}\bv f_k\pqty{\bv,t},\\
+        \frac{3}{2}n_kT_k &=\int\dd{\bv}\frac{m_kc_k^2}{2}f_k\pqty{\bv,t},\\
+        \bc_k &= \bv-\bu_k.
+    \end{split}
+\end{equation}
 
+\section{Kinetic equations}
+The time evolution of the distribution functions obey the Boltzmann equations
+\begin{equation}
+    \pqty{\pdv{t}+\bv\vdot\pdv{\br}-\frac{1}{m_k}\pdv{U(r)}{\br}\vdot\pdv{\bv}}
+    f_k\pqty{\br,\bv,t}=\sum_{j}\mathcal{I}\pqty{f_k,f_j},
+\end{equation}
+where $U(r)$ is the potential of the external gravitational field. The LHS
+of the Boltzmann equation describes the change over time in the function $f_k$ due to the
+local flow of the particles, subject to external driving. The function 
+$\mathcal{I}\pqty{f_k,f_j}$ on the RHS is the \emph{collision integral}, which 
+describes the change over time in the function $f_k$ due to collisions of particles $k$
+with particles of size $j$. Since we have three types of collisional outcomes, the 
+collision integral $\mathcal{I}$ has to take into account all these types of outcomes.
+Without the loss of generality, we can write the collision integral as a sum of three 
+functions
+\begin{equation}
+    \mathcal{I}\pqty{f_k,f_j}=\utx{\mathcal{I}}{agg}\pqty{f_k,f_j}+
+    \utx{\mathcal{I}}{res}\pqty{f_k,f_j}+\utx{\mathcal{I}}{frag}\pqty{f_k,f_j},
+\end{equation}
+each corresponding to the specific type of collision.
 
+\subsection{General structure of collision integrals}
+Let us consider a collision integral $\mathcal{J}\pqty{f_k,f_j}$ for a generalized 
+collision.
 
 
     
+
+
+
+
+
+
+
 \end{document}
