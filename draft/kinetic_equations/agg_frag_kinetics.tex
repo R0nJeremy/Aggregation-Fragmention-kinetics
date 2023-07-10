@@ -69,7 +69,7 @@ conservation laws, hence we can write
     \begin{split}
         i+j &= \sum_{k=1}^{i+j}k\int\dd{\bv}P_k\pqty{\bv},\\
         i\bv_i+j\bv_j &= \sum_{k=1}^{i+j}k\int\dd{\bv}\bv P_k\pqty{\bv},\\
-        \frac{i^2v_i^2+\pqty{2\bv_i\vdot\bv_j+1}ij\eps^2g^2+j^2v_j^2}{i+j} &= 
+        \frac{i^2v_i^2+\pqty{2\bv_i\vdot\bv_j+\eps^2g^2}ij+j^2v_j^2}{i+j} &= 
         \sum_{k=1}^{i+j}k\int\dd{\bv}v^2P_k\pqty{\bv}.
     \end{split}
 \end{equation}
@@ -82,9 +82,7 @@ collision is
 which is distributed among the debris. 
 
 \subsection{Restitution}
-In general, when two particles collide, they rebound from each other and lose some amount
-of energy, which is given by the restitution coefficient $\eps$. The post-collisional 
-velocities of the colliding particles are given by
+For a restitutive rebound of particles, the outcome velocities are analytic and given by
 \begin{equation}
     \begin{split}
         \bv_i'&=\bv_i-\mu_j\pqty{1+\eps}\pqty{\bg\vdot\be}\be,\\
@@ -96,6 +94,15 @@ from the center of the first particle to the center of the second particle at th
 of the collision
 \begin{equation}
     \be=\frac{\br_i-\br_j}{R_i+R_j}.
+\end{equation}
+Let us write the distribution function $P_k\pqty{\bv}$ for the restitutive collision.
+First of all, the masses of impacting particles do not change, hence the distribution
+function should contain $\delta$-functions to control this. Together with the analytic 
+expression for the outcome velocities, we can write
+\begin{equation}
+    \utx{P_k}{res}\pqty{\bv}=
+    \delta_{ik}\delta\bqty{\bv-\bv_i+\mu_j\pqty{1+\eps}\pqty{\bg\vdot\be}\be}+
+    \delta_{jk}\delta\bqty{\bv-\bv_j-\mu_i\pqty{1+\eps}\pqty{\bg\vdot\be}\be}.
 \end{equation}
 
 \subsection{Aggregation}
@@ -114,6 +121,13 @@ The total energy loss is
 so, all the impact energy is lost during the aggregative collision.
 The threshold energy value $\ltx{E}{agg}$ is in general a function of the sizes of 
 particles.
+
+Let us write the debris velocity distribution function for the aggregation process. 
+Since the outcome is a single particle of mass $m_i+m_j$, with velocity $\bV$, we have
+\begin{equation}
+    \utx{P_k}{agg}\pqty{\bv}=\delta_{k,i+j}\delta\bqty{\bv-\mu_i\bv_i-\mu_j\bv_j}.
+\end{equation}
+The restitution coefficient for the aggregation process is $\eps=0$.
 
 \subsection{Fragmentation}
 If the impact energy exceeds the certain threshold value 
