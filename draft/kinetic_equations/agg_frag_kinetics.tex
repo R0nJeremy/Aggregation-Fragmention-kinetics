@@ -288,7 +288,25 @@ each corresponding to the specific type of collision.
 
 \subsection{General structure of collision integrals}
 Let us consider a collision integral $\mathcal{J}\pqty{f_k,f_j}$ for a generalized 
-collision.
+collision. If we consider a small volume in the phase space $\dd{\Gamma}$ 
+around a point $\pqty{\br,\bv}$, the term $f_k\pqty{\br,\bv,t}\dd{\Gamma}$ gives us 
+the number of particles of size $k$ in that volume at time $t$. The collision integral
+shows how many particles leave and enter this phase space volume per unit time, due 
+to collisions only. So, the collision integral contains two terms, the gain term, which
+shows the number of particles that enter the phase space volume per unit time, and the 
+loss terms, which shows the number of particles that leave this phase space volume per 
+unit time
+\begin{equation}
+    \mathcal{J}\pqty{f_k,f_j}=\mathcal{G}\pqty{f_k,f_j}-\mathcal{L}\pqty{f_k,f_j}.
+\end{equation}
+
+First, we look at the loss term $\mathcal{L}\pqty{f_k,f_j}$, which shows the number of 
+particles of size $k$ and velocity $\bv_k$ at position $\br_k$, that leave the phase 
+space volume after collisions with particles of size $j$, with any velocity. Since 
+collisions are spatially localized, the position vectors of particles $j$ can be taken as 
+$\br_k$. The non-local character of the collisions, due to the distances between particle 
+centers at the moment of collision $R_i+R_j$ can be taken into account. For now, we simply
+ignore this non-locality.
 
 
     

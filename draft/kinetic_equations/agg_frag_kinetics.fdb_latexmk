@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex agg_frag_kinetics"] 1689078085 "agg_frag_kinetics.aux" "agg_frag_kinetics.bbl" "agg_frag_kinetics" 1689078477 0
-  "./agg_frag_kineticsNotes.bib" 1689078477 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
+["bibtex agg_frag_kinetics"] 1689078085 "agg_frag_kinetics.aux" "agg_frag_kinetics.bbl" "agg_frag_kinetics" 1689081696 0
+  "./agg_frag_kineticsNotes.bib" 1689081696 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/revtex/apsrev4-2.bst" 1601932770 69609 e9dea59f0e753ccda3ddc8f5806d846d ""
-  "agg_frag_kinetics.aux" 1689078477 863 39300987784d565c891e429a6c36daef "pdflatex"
+  "agg_frag_kinetics.aux" 1689081696 863 39300987784d565c891e429a6c36daef "pdflatex"
   (generated)
   "agg_frag_kinetics.bbl"
   "agg_frag_kinetics.blg"
   (rewritten before read)
-["pdflatex"] 1689078476 "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" "agg_frag_kinetics.pdf" "agg_frag_kinetics" 1689078477 0
-  "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" 1689078476 13630 201ceec4f540b4c30f6f329e970f4612 ""
+["pdflatex"] 1689081696 "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" "agg_frag_kinetics.pdf" "agg_frag_kinetics" 1689081696 0
+  "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" 1689081695 14898 551307b728de2688eeff8709a72dc106 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1246382020 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -141,9 +141,9 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1684972800 40326 aba987258e6d6b6da5dec3a727ea174b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1687074717 4603192 0eff5d941e341e7e38e369b967619829 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1687243961 7862974 120c963786bba9f2cf2c066866e21da9 ""
-  "agg_frag_kinetics.aux" 1689078477 863 39300987784d565c891e429a6c36daef "pdflatex"
+  "agg_frag_kinetics.aux" 1689081696 863 39300987784d565c891e429a6c36daef "pdflatex"
   "agg_frag_kinetics.bbl" 1689078085 1982 35453d3875d823f0ec9445e740a573d9 "bibtex agg_frag_kinetics"
-  "agg_frag_kinetics.tex" 1689078476 13630 201ceec4f540b4c30f6f329e970f4612 ""
+  "agg_frag_kinetics.tex" 1689081695 14898 551307b728de2688eeff8709a72dc106 ""
   "notations.sty" 1689001492 1904 2a172a4b244e7ee9dad2bfacca27cc1e ""
   (generated)
   "agg_frag_kinetics.aux"
