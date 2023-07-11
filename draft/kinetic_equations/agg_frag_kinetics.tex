@@ -24,32 +24,47 @@ in this work we assume a simplistic model of fragmentation, called \emph{shatter
 When two aggregates of masses $m_i$ and $m_j$ collide with a sufficient energy, both 
 of them shatter into singular monomers, $m_i\to i\cdot m_1$ and $m_j\to j\cdot m_1$.
 
-Let us consider a collision of two particles of masses $m_i$, $m_j$, and velocities 
-$\bv_i$, $\bv_j$ and radii $R_i$, $R_j$ in the center of mass (CoM) frame, which moves 
-with velocity $\bV=\mu_i\bv_i+\mu_j\bv_j$, where $\mu_i=m_i/M$, $\mu_j=m_j/M$ and 
-$M=m_i+m_j$. The velocities of particles in the CoM are 
-\begin{equation}
-    \bv_{ci}=\mu_j\bg,\qquad\bv_{cj}=-\mu_i\bg,
-\end{equation}
-where $\bg=\bv_i-\bv_j$ is the relative velocity. Obviously, both particles in the CoM
-frame have equal amounts of momenta, but oppositely directed
-\begin{equation}
-    \bp_{ci}=\mu\bg=\bp,\qquad\bp_{cj}=-\mu\bg=-\bp,
-\end{equation}
-where $\mu=m_j\mu_i=m_i\mu_j$ is the reduced mass. In the CoM frame, the relative velocity 
-vector is 
-
-The impact energy is then
-\begin{equation}
-    \ltx{E}{imp}=\frac{p^2}{2\mu}=\frac{\mu g^2}{2}.
-\end{equation}
-
-The outcome of the collision depends on the value of $\ltx{E}{imp}$. Let us discuss each 
-case in more details.
-
 \subsection{Generalized collisions}
-First, let us consider a collision of particles of masses $m_i$, $m_j$ and 
-velocities $\bv_i$, $\bv_j$. In the most general case, we assume that
+Let us consider a collision of particles of masses $m_i$, $m_j$ and 
+velocities $\bv_i$, $\bv_j$, and radii $R_i$, $R,j$. The collision geometry is 
+characterized by the unit vector $\bn$, which is directed from the center of particle 
+$j$ to the center of particle $i$ at the moment of contact of two particles
+\begin{equation}
+    \bn=\frac{\br_i-\br_j}{R_i+R_j},
+\end{equation}
+where $\br_i$ and $\br_j$ are position vectors of the particles. The next parameter 
+which describes the collision, is the \emph{restitution coefficient} 
+$0\leqslant\eps\leqslant 1$. This parameter controls the amount of energy dissipated 
+after the collision. The total energy of this binary system, can be split into two parts, 
+the translational energy and the internal energy
+\begin{equation}
+    E=\ltx{E}{translation}+\ltx{E}{internal}=\frac{MV^2}{2}+\frac{\mu g^2}{2},
+\end{equation}
+where 
+\begin{equation}
+    \begin{split}
+        &\bV=\mu_i\bv_i+\mu_j\bv_j,\quad\bg=\bv_i-\bv_j,\\
+        &M=m_i+m_j,\quad\mu=\frac{m_im_j}{m_i+m_j},\\
+        &\mu_i=\frac{m_i}{m_i+m_j},\quad\mu_j=\frac{m_j}{m_i+m_j}.
+    \end{split}
+\end{equation}
+The translational energy does not change after the collision, but the internal part 
+dissipates. Using $\bn$, we can split the relative velocity into normal and tangential
+parts
+\begin{equation}
+    \bg_n=\pqty{\bg\vdot\bn}\bn,\quad\bg_t=\bg-\bg_n,
+\end{equation}
+and write the total energy as 
+\begin{equation}
+    E=\frac{MV^2}{2}+\frac{\mu g_t^2}{2}+\frac{\mu g_n^2}{2}.
+\end{equation}
+Now, we can write the post-collision total energy $E'$ as 
+\begin{equation}
+    E'=\frac{MV^2}{2}+\frac{\mu g_t^2}{2}+\eps^2\frac{\mu g_n^2}{2},
+\end{equation}
+where only the normal part of the internal energy dissipates.
+
+In the most general case, we assume that
 the outcome of the collision is a collection of particles with various masses and 
 velocities. Introducing the function $P_k\pqty{\bv}$, which is the number of 
 particles of mass $m_k$ and velocity $\bv$ created after the collision, 
@@ -59,41 +74,19 @@ energy of particles in the outcome of the generalized collision
 \begin{equation}
     \begin{split}
         M &= \sum_{k=1}^{i+j}\int\dd{\bv}m_kP_k\pqty{\bv},\\
-        \bp &= \sum_{k=1}^{i+j}\int\dd{\bv}m_k\bv P_k\pqty{\bv},\\
-        E &= \sum_{k=1}^{i+j}\int\dd{\bv}\frac{m_kv^2}{2}P_k\pqty{\bv}.
+        M\bV &= \sum_{k=1}^{i+j}\int\dd{\bv}m_k\bv P_k\pqty{\bv},\\
+        \frac{MV^2}{2}+\frac{\mu g_t^2}{2}+\eps^2\frac{\mu g_n^2}{2} &= 
+        \sum_{k=1}^{i+j}\int\dd{\bv}\frac{m_kv^2}{2}P_k\pqty{\bv}.
     \end{split}
 \end{equation}
-Here we implied that $k\leqslant i+j$. The total mass and total momentum obey the 
-conservation laws, hence we can write
-\begin{equation}
-    \begin{split}
-        i+j &= \sum_{k=1}^{i+j}k\int\dd{\bv}P_k\pqty{\bv},\\
-        i\bv_i+j\bv_j &= \sum_{k=1}^{i+j}k\int\dd{\bv}\bv P_k\pqty{\bv},\\
-        \frac{i^2v_i^2+\pqty{2\bv_i\vdot\bv_j+\eps^2g^2}ij+j^2v_j^2}{i+j} &= 
-        \sum_{k=1}^{i+j}k\int\dd{\bv}v^2P_k\pqty{\bv}.
-    \end{split}
-\end{equation}
-Although the total energy does not conserve in a collision, we can estimate the energy 
-loss using the restitution coefficient $\eps$. So, remaining total energy after the 
-collision is 
-\begin{equation}
-    E=\ltx{E}{trans}+\eps^2\ltx{E}{imp}=\frac{MV^2}{2}+\frac{\mu}{2}\eps^2g^2,
-\end{equation}
-which is distributed among the debris. 
 
 \subsection{Restitution}
 For a restitutive rebound of particles, the outcome velocities are analytic and given by
 \begin{equation}
     \begin{split}
-        \bv_i'&=\bv_i-\mu_j\pqty{1+\eps}\pqty{\bg\vdot\be}\be,\\
-        \bv_j'&=\bv_j+\mu_i\pqty{1+\eps}\pqty{\bg\vdot\be}\be,
+        \bv_i'&=\bv_i-\mu_j\pqty{1+\eps}\bg_n,\\
+        \bv_j'&=\bv_j+\mu_i\pqty{1+\eps}\bg_n,
     \end{split}
-\end{equation}
-where $\be$ is the unit vector of the impact geometry, e.g. the unit vector pointing 
-from the center of the first particle to the center of the second particle at the moment
-of the collision
-\begin{equation}
-    \be=\frac{\br_i-\br_j}{R_i+R_j}.
 \end{equation}
 Let us write the distribution function $P_k\pqty{\bv}$ for the restitutive collision.
 First of all, the masses of impacting particles do not change, hence the distribution
@@ -101,9 +94,10 @@ function should contain $\delta$-functions to control this. Together with the an
 expression for the outcome velocities, we can write
 \begin{equation}
     \utx{P_k}{res}\pqty{\bv}=
-    \delta_{ik}\delta\bqty{\bv-\bv_i+\mu_j\pqty{1+\eps}\pqty{\bg\vdot\be}\be}+
-    \delta_{jk}\delta\bqty{\bv-\bv_j-\mu_i\pqty{1+\eps}\pqty{\bg\vdot\be}\be}.
+    \delta_{k,i}\delta\bqty{\bv-\bv_i+\mu_j\pqty{1+\eps}\bg_n}+
+    \delta_{k,j}\delta\bqty{\bv-\bv_j-\mu_i\pqty{1+\eps}\bg_n}.
 \end{equation}
+The $\delta_{k,x}$ is a Kronecker-delta operator.
 
 \subsection{Aggregation}
 If the impact energy is smaller than a certain threshold 
@@ -116,9 +110,9 @@ collision, which is a single particle with a mass and velocity
 The total energy loss is 
 \begin{equation}    
         \Delta E=\frac{MV^2}{2}-\frac{m_iv_i^2}{2}-\frac{m_jv_j^2}{2}
-        =-\frac{\mu g^2}{2}=-\ltx{E}{imp},
+        =-\frac{\mu g^2}{2}=-\ltx{E}{internal},
 \end{equation}
-so, all the impact energy is lost during the aggregative collision.
+so, all the internal energy is lost during the aggregative collision.
 The threshold energy value $\ltx{E}{agg}$ is in general a function of the sizes of 
 particles.
 
@@ -127,7 +121,7 @@ Since the outcome is a single particle of mass $m_i+m_j$, with velocity $\bV$, w
 \begin{equation}
     \utx{P_k}{agg}\pqty{\bv}=\delta_{k,i+j}\delta\bqty{\bv-\mu_i\bv_i-\mu_j\bv_j}.
 \end{equation}
-The restitution coefficient for the aggregation process is $\eps=0$.
+
 
 \subsection{Fragmentation}
 If the impact energy exceeds the certain threshold value 
@@ -156,14 +150,28 @@ be estimated as
 \end{equation}
 which is the amount of energy which is equally distributed among all the shattered 
 monomers. From this, we can see that the impact energy should be larger than 
-$\gamma\cdot k$, which can be treated as the threshold energy. In the  frame, each 
-released monomer has an energy 
+$\gamma\cdot k$, which can be treated as the threshold energy. Since the impact energy 
+is the normal part of the internal energy, we can write
 \begin{equation}
-    E'_{c}=\frac{m_1v'^2_{c}}{2}=\frac{\mu g^2}{2k}-\gamma,
+    \ltx{E}{decay}=\frac{\mu g_n^2}{2}-\gamma\cdot k=\eps^2\frac{\mu g_n^2}{2},
+\end{equation}
+and the restitution coefficient for the fragmentation is
+\begin{equation}
+    \eps=\sqrt{1-\frac{2\gamma k}{\mu g_n^2}}.
+\end{equation}
+Since the decay energy has to be positive, we can write the threshold value for the 
+normal relative velocity as 
+\begin{equation}
+    g_n\geqslant\sqrt{\frac{2\gamma k}{\mu}}=
+    \sqrt{\frac{2\gamma}{m_1}}\cdot\frac{i+j}{\sqrt{ij}}.
+\end{equation}
+In the CoM frame, each released monomer has an energy 
+\begin{equation}
+    E'_{c}=\frac{m_1v'^2_{c}}{2}=\frac{\ltx{E}{decay}}{k}=\eps^2\frac{\mu g_n^2}{2k},
 \end{equation}
 where $v'_{c}$ is the speed of a monomer in CoM frame
 \begin{equation}
-    v'_{c}=\sqrt{\frac{ij}{\pqty{i+j}^2}\cdot g^2-\frac{2\gamma}{m_1}}.
+    v'_{c}=\frac{\sqrt{ij}}{i+j}\cdot\eps g_n.
 \end{equation}
 
 Let us estimate the number of monomers $\dd{N}$ in a small solid angle $\dd{\Omega}$.
@@ -176,11 +184,55 @@ angle itself, hence
 In the Lab frame, the speeds of monomers are not equal, but rather uniformly 
 distribution in the range 
 \begin{equation}
-    \lmin{v'}=\abs{\mu_i\bv_i+\mu_j\bv_j}-
-    \sqrt{\frac{ij}{i+j}\cdot g^2-\frac{2\gamma}{m_1}},\qquad
-    \lmax{v'}=\abs{\mu_i\bv_i+\mu_j\bv_j}+
-    \sqrt{\frac{ij}{i+j}\cdot g^2-\frac{2\gamma}{m_1}}.
+    \lmin{v'}=V-v'_c,\qquad\lmax{v'}=V+v'_c.
 \end{equation}
+
+Since the fragmented debris consist of only monomers, the distribution function 
+$P_k\pqty{\bv}$ has to contain the term $\delta_{k,1}$. In the CoM frame, we can write 
+\begin{equation}
+    \utx{P_k}{frag, CoM}\pqty{\bv}=\delta_{k,1}\delta\pqty{v-v'_c}\frac{i+j}{4\pi}.
+\end{equation}
+In this case, the integral of any velocity function $\varphi\pqty{\bv}$ in the form of 
+\begin{equation}
+    \int\dd{\bv}\varphi\pqty{\bv}\utx{P_k}{frag,CoM}\pqty{\bv}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\bv}\varphi\pqty{\bv}\delta\pqty{v-v'_c},
+\end{equation}
+can be written as 
+\begin{equation}
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}
+    \int_{0}^{\infty}\dd{v}\varphi\pqty{v,\be}\delta\pqty{v-v'_c}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\varphi\pqty{v'_c,\be}.
+\end{equation}
+If $\varphi\pqty{\bv}\equiv\varphi\pqty{v,\be}=\be\varphi\pqty{v}$, such as $\bv=v\be$, 
+then 
+\begin{equation}
+    \int\dd{\be}\be\varphi\pqty{v}=\bnull.
+\end{equation}
+If $\varphi\pqty{\bv}\equiv\varphi\pqty{v,\be}=\varphi\pqty{v}$, then 
+\begin{equation}
+    \int\dd{\be}\varphi\pqty{v}=4\pi\varphi\pqty{v}.
+\end{equation}
+
+To write the debris velocity distribution function in the Lab frame, we have to 
+add the center of mass velocity to all the velocities of the monomers. This can be 
+written as 
+\begin{equation}
+    \utx{P_k}{frag}\pqty{\bv}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\delta\pqty{\bv-\bV-v'_c\be}.
+\end{equation}
+Now, integrating over a function $\varphi\pqty{\bv}$ becomes
+\begin{equation}
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\int\dd{\bv}\varphi\pqty{\bv}
+    \delta\pqty{\bv-\bV-v'_c\be}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\varphi\pqty{\bV-v'_c\be}.
+\end{equation}
+If $\varphi\pqty{\bV-v'_c\be}=\varphi\pqty{\bV}-\be\varphi\pqty{v'_c}$, then 
+we have
+\begin{equation}
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\int\dd{\bv}\varphi\pqty{\bv}
+    \delta\pqty{\bv-\bV-v'_c\be}=\delta_{k,1}\pqty{i+j}\varphi\pqty{\bV}.
+\end{equation}
+
 
 \section{Distribution function}
 The statistical description of the system is fully described by a set of distribution
