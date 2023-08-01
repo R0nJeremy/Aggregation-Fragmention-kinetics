@@ -5,42 +5,42 @@
 
 \begin{document}
 \section{The mechanics of binary interactions}
-Our system comprises an infinite number of mechanically identical, spherical particles 
-known as monomers. These particles have masses $m_1$ and radii $R_1$. When two 
-monomers collide, they lose a certain amount of impact energy and rebound with a 
-coefficient of restitution $\eps$. If the impact energy is below a specific threshold 
-value $\ltx{E}{imp}\leqslant\ltx{E}{agg}$, the monomers stick together due to surface 
-forces like van der Waals forces, forming a larger aggregate particle with mass $m_2$ 
-and radius $R_2$. This process is known as \emph{aggregation} and allows the creation 
+Our system comprises an infinite number of mechanically identical, spherical particles
+known as monomers. These particles have masses $m_1$ and radii $R_1$. When two
+monomers collide, they lose a certain amount of impact energy and rebound with a
+coefficient of restitution $\eps$. If the impact energy is below a specific threshold
+value $\ltx{E}{imp}\leqslant\ltx{E}{agg}$, the monomers stick together due to surface
+forces like van der Waals forces, forming a larger aggregate particle with mass $m_2$
+and radius $R_2$. This process is known as \emph{aggregation} and allows the creation
 of larger particles from individual monomers. A particle of mass $m_k$ is an aggregate
-of $k$ monomers, hence $m_k=k\cdot m_1$. We assume that the aggregates remain 
+of $k$ monomers, hence $m_k=k\cdot m_1$. We assume that the aggregates remain
 spherically shaped, and their radii scale as $R_k\sim m_k^{1/3}\sim k^{1/3}$.
 
-Conversely, there is another mechanism called \emph{fragmentation} that decreases the 
-sizes of aggregates. If the impact energy is higher than a certain threshold value 
+Conversely, there is another mechanism called \emph{fragmentation} that decreases the
+sizes of aggregates. If the impact energy is higher than a certain threshold value
 $\ltx{E}{imp}\geqslant\ltx{E}{frag}$, the colliding aggregates break into smaller pieces.
 The size distribution of the fragmented pieces are difficult to model analytically, and
 in this work we assume a simplistic model of fragmentation, called \emph{shattering}.
-When two aggregates of masses $m_i$ and $m_j$ collide with a sufficient energy, both 
+When two aggregates of masses $m_i$ and $m_j$ collide with a sufficient energy, both
 of them shatter into singular monomers, $m_i\to i\cdot m_1$ and $m_j\to j\cdot m_1$.
 
 \subsection{Generalized collisions}
-Let us consider a collision of particles of masses $m_i$, $m_j$ and 
-velocities $\bv_i$, $\bv_j$, and radii $R_i$, $R,j$. The collision geometry is 
-characterized by the unit vector $\bn$, which is directed from the center of particle 
+Let us consider a collision of particles of masses $m_i$, $m_j$ and
+velocities $\bv_i$, $\bv_j$, and radii $R_i$, $R,j$. The collision geometry is
+characterized by the unit vector $\bn$, which is directed from the center of particle
 $j$ to the center of particle $i$ at the moment of contact of two particles
 \begin{equation}
     \bn=\frac{\br_i-\br_j}{R_i+R_j},
 \end{equation}
-where $\br_i$ and $\br_j$ are position vectors of the particles. The next parameter 
-which describes the collision, is the \emph{restitution coefficient} 
-$0\leqslant\eps\leqslant 1$. This parameter controls the amount of energy dissipated 
-after the collision. The total energy of this binary system, can be split into two parts, 
+where $\br_i$ and $\br_j$ are position vectors of the particles. The next parameter
+which describes the collision, is the \emph{restitution coefficient}
+$0\leqslant\eps\leqslant 1$. This parameter controls the amount of energy dissipated
+after the collision. The total energy of this binary system, can be split into two parts,
 the translational energy and the internal energy
 \begin{equation}
     E=\ltx{E}{translation}+\ltx{E}{internal}=\frac{MV^2}{2}+\frac{\mu g^2}{2},
 \end{equation}
-where 
+where
 \begin{equation}
     \begin{split}
         &\bV=\mu_i\bv_i+\mu_j\bv_j,\quad\bg=\bv_i-\bv_j,\\
@@ -48,35 +48,36 @@ where
         &\mu_i=\frac{m_i}{m_i+m_j},\quad\mu_j=\frac{m_j}{m_i+m_j}.
     \end{split}
 \end{equation}
-The translational energy does not change after the collision, but the internal part 
+The translational energy does not change after the collision, but the internal part
 dissipates. Using $\bn$, we can split the relative velocity into normal and tangential
 parts
 \begin{equation}
     \bg_n=\pqty{\bg\vdot\bn}\bn,\quad\bg_t=\bg-\bg_n,
 \end{equation}
-and write the total energy as 
+and write the total energy as
 \begin{equation}
     E=\frac{MV^2}{2}+\frac{\mu g_t^2}{2}+\frac{\mu g_n^2}{2}.
 \end{equation}
-Now, we can write the post-collision total energy $E'$ as 
+Now, we can write the post-collision total energy $E'$ as
 \begin{equation}
     E'=\frac{MV^2}{2}+\frac{\mu g_t^2}{2}+\eps^2\frac{\mu g_n^2}{2},
 \end{equation}
 where only the normal part of the internal energy dissipates.
 
 In the most general case, we assume that
-the outcome of the collision is a collection of particles with various masses and 
-velocities. Introducing the function $P_k\pqty{\bv}$, which is the number of 
-particles of mass $m_k$ and velocity $\bv$ created after the collision, 
-or in other words, introducing the velocity distribution function of the particles of 
-mass $m_k$. Using this distribution function, we can write the total mass, momentum and 
+the outcome of the collision is a collection of particles with various masses and
+velocities. Introducing the function $P_k\pqty{\bv_k\vert\bv_i,\bv_j}$, which is the number of
+particles of mass $m_k$ and velocity $\bv_k$ created after the collision of particles with
+velocities $\bv_i$ and $\bv_j$ and sizes $i,j$,
+or in other words, introducing the velocity distribution function of the particles of
+mass $m_k$. Using this distribution function, we can write the total mass, momentum and
 energy of particles in the outcome of the generalized collision
 \begin{equation}
     \begin{split}
-        M &= \sum_{k=1}^{i+j}\int\dd{\bv}m_kP_k\pqty{\bv},\\
-        M\bV &= \sum_{k=1}^{i+j}\int\dd{\bv}m_k\bv P_k\pqty{\bv},\\
-        \frac{MV^2}{2}+\frac{\mu g_t^2}{2}+\eps^2\frac{\mu g_n^2}{2} &= 
-        \sum_{k=1}^{i+j}\int\dd{\bv}\frac{m_kv^2}{2}P_k\pqty{\bv}.
+        M &= \sum_{k=1}^{i+j}\int\dd{\bv}m_kP_k\pqty{\bv_k\vert\bv_i,\bv_j},\\
+        M\bV &= \sum_{k=1}^{i+j}\int\dd{\bv}m_k\bv P_k\pqty{\bv_k\vert\bv_i,\bv_j},\\
+        \frac{MV^2}{2}+\frac{\mu g_t^2}{2}+\eps^2\frac{\mu g_n^2}{2} &=
+        \sum_{k=1}^{i+j}\int\dd{\bv}\frac{m_kv^2}{2}P_k\pqty{\bv_k\vert\bv_i,\bv_j}.
     \end{split}
 \end{equation}
 
@@ -90,45 +91,46 @@ For a restitutive rebound of particles, the outcome velocities are analytic and 
 \end{equation}
 Let us write the distribution function $P_k\pqty{\bv}$ for the restitutive collision.
 First of all, the masses of impacting particles do not change, hence the distribution
-function should contain $\delta$-functions to control this. Together with the analytic 
+function should contain $\delta$-functions to control this. Together with the analytic
 expression for the outcome velocities, we can write
 \begin{equation}
-    \utx{P_k}{res}\pqty{\bv}=
-    \delta_{k,i}\delta\bqty{\bv-\bv_i+\mu_j\pqty{1+\eps}\bg_n}+
-    \delta_{k,j}\delta\bqty{\bv-\bv_j-\mu_i\pqty{1+\eps}\bg_n}.
+    \utx{P_k}{res}\pqty{\bv_k\vert\bv_i,\bv_j}=
+    \delta_{k,i}\delta\bqty{\bv_k-\bv_i+\mu_j\pqty{1+\eps}\bg_n}+
+    \delta_{k,j}\delta\bqty{\bv_k-\bv_j-\mu_i\pqty{1+\eps}\bg_n}.
 \end{equation}
 The $\delta_{k,x}$ is a Kronecker-delta operator.
 
 \subsection{Aggregation}
-If the impact energy is smaller than a certain threshold 
-$\ltx{E}{imp}\leqslant\ltx{E}{agg}$, the outcome of the collision is merging of two 
-particles. From the momentum conservation we can write the outcome of the aggregative 
+If the impact energy is smaller than a certain threshold
+$\ltx{E}{imp}\leqslant\ltx{E}{agg}$, the outcome of the collision is merging of two
+particles. From the momentum conservation we can write the outcome of the aggregative
 collision, which is a single particle with a mass and velocity
 \begin{equation}
     m'=m_i+m_j\qquad\bv'=\bV=\frac{m_i\bv_i+m_j\bv_j}{m_i+m_j}.
 \end{equation}
-The total energy loss is 
-\begin{equation}    
-        \Delta E=\frac{MV^2}{2}-\frac{m_iv_i^2}{2}-\frac{m_jv_j^2}{2}
-        =-\frac{\mu g^2}{2}=-\ltx{E}{internal},
+The total energy loss is
+\begin{equation}
+    \Delta E=\frac{MV^2}{2}-\frac{m_iv_i^2}{2}-\frac{m_jv_j^2}{2}
+    =-\frac{\mu g^2}{2}=-\ltx{E}{internal},
 \end{equation}
 so, all the internal energy is lost during the aggregative collision.
-The threshold energy value $\ltx{E}{agg}$ is in general a function of the sizes of 
+The threshold energy value $\ltx{E}{agg}$ is in general a function of the sizes of
 particles.
 
-Let us write the debris velocity distribution function for the aggregation process. 
+Let us write the debris velocity distribution function for the aggregation process.
 Since the outcome is a single particle of mass $m_i+m_j$, with velocity $\bV$, we have
 \begin{equation}
-    \utx{P_k}{agg}\pqty{\bv}=\delta_{k,i+j}\delta\bqty{\bv-\mu_i\bv_i-\mu_j\bv_j}.
+    \utx{P_k}{agg}\pqty{\bv_k\vert\bv_i,\bv_j}=\delta_{k,i+j}
+    \delta\bqty{\bv_k-\mu_i\bv_i-\mu_j\bv_j}.
 \end{equation}
 
 
 \subsection{Fragmentation}
-If the impact energy exceeds the certain threshold value 
+If the impact energy exceeds the certain threshold value
 $\ltx{E}{imp}\geqslant\ltx{E}{frag}$, the two impactors break into into smaller
 particles in the collision.
-We cannot obtain the velocities of the monomers from only conservation laws, hence 
-we have to assume that certain constraints are valid. Namely, we assume two 
+We cannot obtain the velocities of the monomers from only conservation laws, hence
+we have to assume that certain constraints are valid. Namely, we assume two
 constraints:
 \begin{enumerate}
     \item Both particles shatter into their constituent monomers;
@@ -142,15 +144,15 @@ can be estimated as
     E_k = \gamma\cdot k.
 \end{equation}
 The fragmentation process of two particles of masses $m_i$ and $m_j$, with velocities
-$\bv_i$ and $\bv_j$ can be then described as a decay of a single particle of mass 
-$m_k=m_i+m_j$ with velocity $\bv_k=\bV=\mu_i\bv_i+\mu_j\bv_j$. The decay energy can 
-be estimated as 
+$\bv_i$ and $\bv_j$ can be then described as a decay of a single particle of mass
+$m_k=m_i+m_j$ with velocity $\bv_k=\bV=\mu_i\bv_i+\mu_j\bv_j$. The decay energy can
+be estimated as
 \begin{equation}
     \ltx{E}{decay}=\ltx{E}{imp}-\gamma\cdot k,
 \end{equation}
-which is the amount of energy which is equally distributed among all the shattered 
-monomers. From this, we can see that the impact energy should be larger than 
-$\gamma\cdot k$, which can be treated as the threshold energy. Since the impact energy 
+which is the amount of energy which is equally distributed among all the shattered
+monomers. From this, we can see that the impact energy should be larger than
+$\gamma\cdot k$, which can be treated as the threshold energy. Since the impact energy
 is the normal part of the internal energy, we can write
 \begin{equation}
     \ltx{E}{decay}=\frac{\mu g_n^2}{2}-\gamma\cdot k=\eps^2\frac{\mu g_n^2}{2},
@@ -159,13 +161,13 @@ and the restitution coefficient for the fragmentation is
 \begin{equation}
     \eps=\sqrt{1-\frac{2\gamma k}{\mu g_n^2}}.
 \end{equation}
-Since the decay energy has to be positive, we can write the threshold value for the 
-normal relative velocity as 
+Since the decay energy has to be positive, we can write the threshold value for the
+normal relative velocity as
 \begin{equation}
     g_n\geqslant\sqrt{\frac{2\gamma k}{\mu}}=
     \sqrt{\frac{2\gamma}{m_1}}\cdot\frac{i+j}{\sqrt{ij}}.
 \end{equation}
-In the CoM frame, each released monomer has an energy 
+In the CoM frame, each released monomer has an energy
 \begin{equation}
     E'_{c}=\frac{m_1v'^2_{c}}{2}=\frac{\ltx{E}{decay}}{k}=\eps^2\frac{\mu g_n^2}{2k},
 \end{equation}
@@ -175,58 +177,60 @@ where $v'_{c}$ is the speed of a monomer in CoM frame
 \end{equation}
 
 Let us estimate the number of monomers $\dd{N}$ in a small solid angle $\dd{\Omega}$.
-From the second constraint, we deduce that this number has to be proportional to the 
-angle itself, hence 
+From the second constraint, we deduce that this number has to be proportional to the
+angle itself, hence
 \begin{equation}
     \dd{N}=\frac{k}{4\pi}\dd{\Omega},\qquad k=i+j.
 \end{equation}
 
-In the Lab frame, the speeds of monomers are not equal, but rather uniformly 
-distribution in the range 
+In the Lab frame, the speeds of monomers are not equal, but rather uniformly
+distribution in the range
 \begin{equation}
     \lmin{v'}=V-v'_c,\qquad\lmax{v'}=V+v'_c.
 \end{equation}
 
-Since the fragmented debris consist of only monomers, the distribution function 
-$P_k\pqty{\bv}$ has to contain the term $\delta_{k,1}$. In the CoM frame, we can write 
+Since the fragmented debris consist of only monomers, the distribution function
+$P_k\pqty{\bv_k\vert\bv_i,\bv_j}$ has to contain the term $\delta_{k,1}$.
+In the CoM frame, we can write
 \begin{equation}
-    \utx{P_k}{frag, CoM}\pqty{\bv}=\delta_{k,1}\delta\pqty{v-v'_c}\frac{i+j}{4\pi}.
+    \utx{P_k}{frag, CoM}\pqty{\bv_k\vert\bv_i,\bv_j}=
+    \delta_{k,1}\delta\pqty{v_k-v'_c}\frac{i+j}{4\pi}.
 \end{equation}
-In this case, the integral of any velocity function $\varphi\pqty{\bv}$ in the form of 
+In this case, the integral of any velocity function $\varphi\pqty{\bv_k}$ in the form of
 \begin{equation}
-    \int\dd{\bv}\varphi\pqty{\bv}\utx{P_k}{frag,CoM}\pqty{\bv}=
-    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\bv}\varphi\pqty{\bv}\delta\pqty{v-v'_c},
+    \int\dd{\bv_k}\varphi\pqty{\bv_k}\utx{P_k}{frag,CoM}\pqty{\bv_k\vert\bv_i,\bv_j}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\bv_k}\varphi\pqty{\bv_k}\delta\pqty{v_k-v'_c},
 \end{equation}
-can be written as 
+can be written as
 \begin{equation}
     \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}
     \int_{0}^{\infty}\dd{v}\varphi\pqty{v,\be}\delta\pqty{v-v'_c}=
     \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\varphi\pqty{v'_c,\be}.
 \end{equation}
-If $\varphi\pqty{\bv}\equiv\varphi\pqty{v,\be}=\be\varphi\pqty{v}$, such as $\bv=v\be$, 
-then 
+If $\varphi\pqty{\bv}\equiv\varphi\pqty{v,\be}=\be\varphi\pqty{v}$, such as $\bv=v\be$,
+then
 \begin{equation}
     \int\dd{\be}\be\varphi\pqty{v}=\bnull.
 \end{equation}
-If $\varphi\pqty{\bv}\equiv\varphi\pqty{v,\be}=\varphi\pqty{v}$, then 
+If $\varphi\pqty{\bv}\equiv\varphi\pqty{v,\be}=\varphi\pqty{v}$, then
 \begin{equation}
     \int\dd{\be}\varphi\pqty{v}=4\pi\varphi\pqty{v}.
 \end{equation}
 
-To write the debris velocity distribution function in the Lab frame, we have to 
-add the center of mass velocity to all the velocities of the monomers. This can be 
-written as 
+To write the debris velocity distribution function in the Lab frame, we have to
+add the center of mass velocity to all the velocities of the monomers. This can be
+written as
 \begin{equation}
-    \utx{P_k}{frag}\pqty{\bv}=
-    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\delta\pqty{\bv-\bV-v'_c\be}.
+    \utx{P_k}{frag}\pqty{\bv_k\vert\bv_i,\bv_j}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\delta\pqty{\bv_k-\bV-v'_c\be}.
 \end{equation}
-Now, integrating over a function $\varphi\pqty{\bv}$ becomes
+Now, integrating over a function $\varphi\pqty{\bv_k}$ becomes
 \begin{equation}
-    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\int\dd{\bv}\varphi\pqty{\bv}
-    \delta\pqty{\bv-\bV-v'_c\be}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\int\dd{\bv_k}\varphi\pqty{\bv_k}
+    \delta\pqty{\bv_k-\bV-v'_c\be}=
     \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\varphi\pqty{\bV-v'_c\be}.
 \end{equation}
-If $\varphi\pqty{\bV-v'_c\be}=\varphi\pqty{\bV}-\be\varphi\pqty{v'_c}$, then 
+If $\varphi\pqty{\bV-v'_c\be}=\varphi\pqty{\bV}-\be\varphi\pqty{v'_c}$, then
 we have
 \begin{equation}
     \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\int\dd{\bv}\varphi\pqty{\bv}
@@ -236,9 +240,9 @@ we have
 
 \section{Distribution function}
 The statistical description of the system is fully described by a set of distribution
-functions $f_k\pqty{\br,\bv,t}$. It is normalized, such that 
+functions $f_k\pqty{\br,\bv,t}$. It is normalized, such that
 $f_k\pqty{\br,\bv,t}\dd{\br}\dd{\bv}$ gives the number of particles of size $k$
-in the phase space volume $\dd{\Gamma}=\dd{\br}\dd{\bv}$, around the point 
+in the phase space volume $\dd{\Gamma}=\dd{\br}\dd{\bv}$, around the point
 $\pqty{\br,\bv}$. Hence, integrating over the whole phase space gives us the total
 number of particles of size $k$
 \begin{equation}
@@ -250,12 +254,12 @@ distribution function $f_k\pqty{\bv,t}$
 \begin{equation}
     N_k=\int\dd{\br}\int\dd{\bv}f_k\pqty{\bv,t},
 \end{equation}
-hence 
+hence
 \begin{equation}
     n_k\equiv\frac{N_k}{V}=\int\dd{\bv}f_k\pqty{\bv,t},
 \end{equation}
-is the number density of the subsystem of particles with size $k$. The other field 
-functions, such as the mean flow velocity $\bu_k$ or granular temperature $T_k$ 
+is the number density of the subsystem of particles with size $k$. The other field
+functions, such as the mean flow velocity $\bu_k$ or granular temperature $T_k$
 can be defined as velocity moments of the distribution function
 \begin{equation}
     \begin{split}
@@ -273,12 +277,12 @@ The time evolution of the distribution functions obey the Boltzmann equations
 \end{equation}
 where $U(r)$ is the potential of the external gravitational field. The LHS
 of the Boltzmann equation describes the change over time in the function $f_k$ due to the
-local flow of the particles, subject to external driving. The function 
-$\mathcal{I}\pqty{f_k,f_j}$ on the RHS is the \emph{collision integral}, which 
+local flow of the particles, subject to external driving. The function
+$\mathcal{I}\pqty{f_k,f_j}$ on the RHS is the \emph{collision integral}, which
 describes the change over time in the function $f_k$ due to collisions of particles $k$
-with particles of size $j$. Since we have three types of collisional outcomes, the 
+with particles of size $j$. Since we have three types of collisional outcomes, the
 collision integral $\mathcal{I}$ has to take into account all these types of outcomes.
-Without the loss of generality, we can write the collision integral as a sum of three 
+Without the loss of generality, we can write the collision integral as a sum of three
 functions
 \begin{equation}
     \mathcal{I}\pqty{f_k,f_j}=\utx{\mathcal{I}}{agg}\pqty{f_k,f_j}+
@@ -287,29 +291,59 @@ functions
 each corresponding to the specific type of collision.
 
 \subsection{General structure of collision integrals}
-Let us consider a collision integral $\mathcal{J}\pqty{f_k,f_j}$ for a generalized 
-collision. If we consider a small volume in the phase space $\dd{\Gamma}$ 
-around a point $\pqty{\br,\bv}$, the term $f_k\pqty{\br,\bv,t}\dd{\Gamma}$ gives us 
+Let us consider a collision integral $\mathcal{J}\pqty{f_k,f_j}$ for a generalized
+collision. If we consider a small volume in the phase space $\dd{\Gamma}$
+around a point $\pqty{\br,\bv}$, the term $f_k\pqty{\br,\bv,t}\dd{\Gamma}$ gives us
 the number of particles of size $k$ in that volume at time $t$. The collision integral
-shows how many particles leave and enter this phase space volume per unit time, due 
+shows how many particles leave and enter this phase space volume per unit time, due
 to collisions only. So, the collision integral contains two terms, the gain term, which
-shows the number of particles that enter the phase space volume per unit time, and the 
-loss terms, which shows the number of particles that leave this phase space volume per 
+shows the number of particles that enter the phase space volume per unit time, and the
+loss terms, which shows the number of particles that leave this phase space volume per
 unit time
 \begin{equation}
     \mathcal{J}\pqty{f_k,f_j}=\mathcal{G}\pqty{f_k,f_j}-\mathcal{L}\pqty{f_k,f_j}.
 \end{equation}
 
-First, we look at the loss term $\mathcal{L}\pqty{f_k,f_j}$, which shows the number of 
-particles of size $k$ and velocity $\bv_k$ at position $\br_k$, that leave the phase 
-space volume after collisions with particles of size $j$, with any velocity. Since 
-collisions are spatially localized, the position vectors of particles $j$ can be taken as 
-$\br_k$. The non-local character of the collisions, due to the distances between particle 
-centers at the moment of collision $R_i+R_j$ can be taken into account. For now, we simply
-ignore this non-locality.
+These terms are proportional to the number of collisions happening in unit volume per unit
+time. Estimation of the number of collisions between the particles of sizes $i$ and $j$
+gives us
+\begin{equation}
+    \utx{\dd{N}}{cols}_{ij}=\sigma_{ij}^2\dd{\bv_i}\dd{\bv_j}\int\dd{\bn}
+    \Theta\pqty{-\bg\vdot\bn}\abs{\bg\vdot\bn}f_i\pqty{\bv_i,t}f_j\pqty{\bv_j,t}.
+\end{equation}
+Now, integrating over all possible pairs of velocities and mass combinations, we can write
+the gain and loss terms as
+\begin{equation}
+    \begin{split}
+        \mathcal{G}\pqty{f_k,f_j}&=\sum_{i}\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}
+        \int\dd{\Omega}P_k\pqty{\bv_k\vert\bv_i,\bv_j}f_i\pqty{\bv_i,t}f_j\pqty{\bv_j,t},\\
+        \mathcal{L}\pqty{f_k,f_j}&=\sum_{i}\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}
+        \int\dd{\Omega}\delta_{k,i}\delta\pqty{\bv_i-\bv_k}f_i\pqty{\bv_i,t}f_j\pqty{\bv_j,t}.
+    \end{split}
+\end{equation}
+The delta functions in the loss term make sure that one of the collision partners is always
+the considered particle of size $k$ and velocity $\bv_k$. Now, the collision integral for a
+general type of collision is written as
+\begin{equation}
+    \mathcal{I}\pqty{f_k,f_j}=\sum_j\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}\int\dd{\Omega}
+    \bqty{P_k\pqty{\bv_k\vert\bv_i,\bv_j}-\delta_{k,i}\delta\pqty{\bv_i-\bv_k}}f_if_j,
+\end{equation}
+where
+\begin{equation}
+    \dd{\Omega}=\dd{\bn}\Theta\pqty{-\bg\vdot\bn}\abs{\bg\vdot\bn},\quad\bg=\bv_i-\bv_j.
+\end{equation}
 
+For specific types of collisions, e.g. aggregation, fragmentation, restitution, we have
+to make sure that the integration domains are specified as well. Usually, this domains are
+the function of the relative velocity $\mathcal{D}(\bg)$. Hence, the specific collision
+integrals are written as
+\begin{equation}
+    \utx{\mathcal{I}}{type}\pqty{f_k,f_j}=\sum_j\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}
+    \utx{\mathcal{D}}{type}(\bg)\int\dd{\Omega}\bqty{\utx{P_k}{type}
+        \pqty{\bv_k\vert\bv_i,\bv_j}-\delta_{k,i}\delta\pqty{\bv_i-\bv_k}}f_if_j,
+\end{equation}
+where \emph{type} can be aggregation, fragmentation or restitution.
 
-    
 
 
 
