@@ -271,7 +271,7 @@ can be defined as velocity moments of the distribution function
 
 \section{Kinetic equations}
 The time evolution of the distribution functions obey the Boltzmann equations
-\begin{equation}
+\begin{equation}\label{eq:kinetic_equation_generic}
     \pqty{\pdv{t}+\bv\vdot\pdv{\br}-\frac{1}{m_k}\pdv{U(r)}{\br}\vdot\pdv{\bv}}
     f_k\pqty{\br,\bv,t}=\sum_{j}\mathcal{I}\pqty{f_k,f_j},
 \end{equation}
@@ -344,9 +344,98 @@ integrals are written as
 \end{equation}
 where \emph{type} can be aggregation, fragmentation or restitution.
 
+\section{Hydrodynamic equations}
+Using the kinetic equations, we can construct the balance equations for macroscopic or
+hydrodynamic fields. Namely, we focus on three of them, the number density fields
+$\Bqty{n_k\pqty{\br,t}}$, the mean velocity field $\bu_k=\bu\pqty{\br,t}$, and the temperature
+fields $\Bqty{T_k\pqty{\br,t}}$. All these fields can be defined as certain moments of the
+distribution function $f_k\pqty{\bv, \br,t}$
+\begin{equation}
+    \begin{split}
+        n_k\pqty{\br,t} &= \int\dd{\bv} f_k\pqty{\bv,\br,t},\\
+        n_k\bu_k\pqty{\br,t} &= \int\dd{\bv} \bv f_k\pqty{\bv,\br,t},\\
+        n_kT_k\pqty{\br,t} &= \frac{1}{3}\int\dd{\bv} m_kc_k^2 f_k\pqty{\bv,\br,t},\\
+        \bc_k\pqty{\br,t} &= \bv - \bu_k\pqty{\br,t}.
+    \end{split}
+\end{equation}
+
+We can write the mean field equations, by averaging the parameters over all ensembles $k$.
+\begin{equation}
+    \begin{split}
+        n\pqty{\br,t} &= \sum_kn_k\pqty{\br,t}=const,\\
+        n\bu\pqty{\br,t} &= \sum_kn_k\bu_k\pqty{\br,t},\\
+        nT\pqty{\br,t} &= \sum_kn_kT_k\pqty{\br,t}.
+    \end{split}
+\end{equation}
+
+Since the total mass of the entire system is constant $n\pqty{\br,t}=const$, we need a more
+informative parameter to describe the dynamics of the mean mass of the system. We can use the
+squared number density as a more informative parameter
+\begin{equation}
+    \bar{n}\pqty{\br,t}=\frac{1}{n\pqty{\br,t}}\sum_kn_k^2\pqty{\br,t}.
+\end{equation}
+In the following, we normalize the total number density as one $n\pqty{\br,t}=1$ for the sake
+of brevity. The hydrodynamic balance equations can be obtained by multiplying the kinetic
+equation with specific functions and integrating over the velocities.
+
+\subsection{Balance equations}
+Let us take a certain function of the velocity $\psi_k(\bv)$, which describe a specific physical
+characteristics of the system. We can multiply the kinetic equation (\ref{eq:kinetic_equation_generic})
+by this function, and integrate over the velocity
+\begin{equation}
+    \int\dd{\bv}\pqty{\pdv{t}+\bv\vdot\pdv{\br}-\frac{1}{m_k}\pdv{U(r)}{\br}\vdot\pdv{\bv}}
+    \psi_k(\bv)f_k\pqty{\br,\bv,t}=\sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv).
+\end{equation}
+
+The RHS of this equation can be written as a difference of gain and loss terms, without a loss
+of generality
+\begin{equation}
+    \sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv)=\mathcal{G}(\psi_k)-\mathcal{L}(\psi_k),
+\end{equation}
+where the exact forms of the gain and loss functions are obtained only after specifying the
+distribution function $f_k\pqty{\br,\bv,t}$. If the physical characteristic specified by the function
+$\psi_k(\bv)$ is conserved after a collision, the gain and loss terms are identical and the RHS
+vanish.
+
+Now, we deal with the LHS. First, let us rewrite the tensor terms in an index notation forms, and
+use greek letters $\alpha,\beta,\gamma$ to denote the coordinate indices. Also, we invoke the
+summation notation convention for the repeated indices. Now, the hydrodynamic balance equation
+reads
+\begin{equation}
+    \int\dd{\bv}\psi_k\pqty{\ia{v}}
+    \pqty{\pdv{t}+\ib{v}\pdv{\ib{r}}-\frac{1}{m_k}\pdv{U(r)}{\ib{r}}\pdv{\ib{v}}}
+    f_k(\ib{r},\ib{v},t)=\mathcal{G}_{\alpha}(\psi_k)-\mathcal{L}_{\alpha}(\psi_k).
+\end{equation}
+Since we assume that $\psi_k$ is a function of only the velocity, we can write
+\begin{equation}
+    \begin{split}
+        \psi_k\ib{v}\pdv{f_k}{\ib{r}}&=\psi_k\pdv{\ib{r}}\pqty{\ib{v}f_k},\\
+        \psi_k\ib{w}\pdv{f_k}{\ib{v}}&=\ib{w}\pdv{\ib{v}}\pqty{\psi_kf_k}-
+        f_k\ib{w}\pdv{\psi_k}{\ib{v}},
+    \end{split}
+\end{equation}
+where $\ib{w}=-m_k^{-1}\pd{U}/\pd{\ib{r}}$ is the acceleration vector.
+Integrating these terms over velocity yields
+\begin{equation}
+    \begin{split}
+        \int\dd{\bv}\psi_k\pdv{f_k}{t}&=\psi_k\pdv{t}\int\dd{\bv}f_k=\psi_k\pdv{n_k}{t},\\
+        \int\dd{\bv}\psi_k\ib{v}\pdv{f_k}{\ib{r}}&=\psi_k\pdv{\ib{r}}\int\dd{\bv}\ib{v}f_k=
+        \psi_k\pdv{\ib{r}}\pqty{n_k\ib{u}},\\
+        \int\dd{\bv}\psi_k\ib{w}\pdv{f_k}{\ib{v}}&=
+        \ib{w}\int\dd{\bv}\pdv{\ib{v}}\pqty{\psi_kf_k}-
+        \ib{w}\int\dd{\bv}f_k\pdv{\psi_k}{\ib{v}}=-\ib{w}\int\dd{\bv}f_k\pdv{\psi_k}{\ib{v}}.
+    \end{split}
+\end{equation}
+In the last integral, we used the divergence theorem and the fact that the distribution function
+vanishes at infinite velocities. Now, the hydrodynamic balance equation reads
+\begin{equation}
+    \psi_k\bqty{\pdv{n_k}{t}+\pdv{\ib{r}}\pqty{n_k\ib{u}}}-
+    \ib{w}\int\dd{\bv}f_k\pdv{\psi_k}{\ib{v}}=
+    \mathcal{G}_\alpha(\psi_k)-\mathcal{L}_{\alpha}(\psi_k).
+\end{equation}
 
 
-
+\subsection{Number density balance equations}
 
 
 
