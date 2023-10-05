@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex agg_frag_kinetics"] 1692605269 "agg_frag_kinetics.aux" "agg_frag_kinetics.bbl" "agg_frag_kinetics" 1692618202 0
-  "./agg_frag_kineticsNotes.bib" 1692618202 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
+["bibtex agg_frag_kinetics"] 1694523875 "agg_frag_kinetics.aux" "agg_frag_kinetics.bbl" "agg_frag_kinetics" 1694783906 0
+  "./agg_frag_kineticsNotes.bib" 1694783905 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/revtex/apsrev4-2.bst" 1601932770 69609 e9dea59f0e753ccda3ddc8f5806d846d ""
-  "agg_frag_kinetics.aux" 1692618202 1183 40021a006827418a3b892e8ea6c66522 "pdflatex"
+  "agg_frag_kinetics.aux" 1694783905 1085 3004a5e19d52361bace42883dd109bd4 "pdflatex"
   (generated)
   "agg_frag_kinetics.bbl"
   "agg_frag_kinetics.blg"
   (rewritten before read)
-["pdflatex"] 1692618201 "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" "agg_frag_kinetics.pdf" "agg_frag_kinetics" 1692618202 0
-  "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" 1692618201 21295 74e58d8677a921caa9b9d0c8cefa8316 ""
+["pdflatex"] 1694783905 "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" "agg_frag_kinetics.pdf" "agg_frag_kinetics" 1694783906 0
+  "/home/yernur/Projects/Aggregation-Fragmention-kinetics/draft/kinetic_equations/agg_frag_kinetics.tex" 1694783905 24217 b94db30365241a3a13320a8fe6b577e8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1246382020 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -105,6 +105,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty" 1654720880 88393 1adf6fa3f245270d06e3d4f8910f7fc5 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty" 1654720880 4474 f04cd1cc7bd76eb033e6fb12eb6a0d77 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty" 1654720880 2444 70065bddd85997dc1fd0bb7ae634e5fa ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty" 1684972800 5319 48d7f3cfa322abd2788e3c09d624b922 ""
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -136,15 +137,16 @@
   "/usr/share/texlive/texmf-dist/tex/latex/revtex/revtex4-2.cls" 1601932770 202588 252d8ad05b878c573f3e2adfc38ce076 ""
   "/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty" 1657483180 2405 93dca770d0598d835703b5d004a641b7 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty" 1654720880 13231 b52297489a0e9d929aae403417d92a02 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/units/nicefrac.sty" 1137111039 4029 0462ee5ab265cf59dc15a41a3b883101 ""
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1655066402 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1684972800 40326 aba987258e6d6b6da5dec3a727ea174b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1687074717 4603192 0eff5d941e341e7e38e369b967619829 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1687243961 7862974 120c963786bba9f2cf2c066866e21da9 ""
-  "agg_frag_kinetics.aux" 1692618202 1183 40021a006827418a3b892e8ea6c66522 "pdflatex"
-  "agg_frag_kinetics.bbl" 1692605270 1982 35453d3875d823f0ec9445e740a573d9 "bibtex agg_frag_kinetics"
-  "agg_frag_kinetics.tex" 1692618201 21295 74e58d8677a921caa9b9d0c8cefa8316 ""
-  "notations.sty" 1692604637 2111 092150736945f5f13fc30c1751f9428c ""
+  "agg_frag_kinetics.aux" 1694783905 1085 3004a5e19d52361bace42883dd109bd4 "pdflatex"
+  "agg_frag_kinetics.bbl" 1694523875 1982 35453d3875d823f0ec9445e740a573d9 "bibtex agg_frag_kinetics"
+  "agg_frag_kinetics.tex" 1694783905 24217 b94db30365241a3a13320a8fe6b577e8 ""
+  "notations.sty" 1694520779 2186 d5c78759c003cbaa02777ead65f06824 ""
   (generated)
   "agg_frag_kinetics.aux"
   "agg_frag_kinetics.log"

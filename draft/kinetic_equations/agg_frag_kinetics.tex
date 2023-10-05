@@ -354,10 +354,19 @@ distribution function $f_k\pqty{\bv, \br,t}$
     \begin{split}
         n_k\pqty{\br,t} &= \int\dd{\bv} f_k\pqty{\bv,\br,t},\\
         n_k\bu_k\pqty{\br,t} &= \int\dd{\bv} \bv f_k\pqty{\bv,\br,t},\\
-        n_kT_k\pqty{\br,t} &= \frac{1}{3}\int\dd{\bv} m_kc_k^2 f_k\pqty{\bv,\br,t},\\
+        \frac{3}{2}n_kT_k\pqty{\br,t} &= \int\dd{\bv}\frac{m_kc_k^2}{2}f_k\pqty{\bv,\br,t},\\
         \bc_k\pqty{\br,t} &= \bv - \bu_k\pqty{\br,t}.
     \end{split}
 \end{equation}
+Also, we introduce the momentum flux (pressure tensor) and heat flux terms as
+\begin{equation}
+    \begin{split}
+        \bP_k\pqty{\br,t} &= \int\dd{\bv}m_k\bc_k\bc_kf_k\pqty{\br,\bv,t},\\
+        \bq_k\pqty{\br,t} &= \int\dd{\bv}\frac{m_kc_k^2}{2}\bc_kf_k\pqty{\br,\bv,t}.
+    \end{split}
+\end{equation}
+Here, the notation with two vectors next to each other $\bc\bc$ denote a dyadic tensor, while
+$\bc\vdot\bc$ is a dot product.
 
 We can write the mean field equations, by averaging the parameters over all ensembles $k$.
 \begin{equation}
@@ -383,59 +392,120 @@ Let us take a certain function of the velocity $\psi_k(\bv)$, which describe a s
 characteristics of the system. We can multiply the kinetic equation (\ref{eq:kinetic_equation_generic})
 by this function, and integrate over the velocity
 \begin{equation}
-    \int\dd{\bv}\pqty{\pdv{t}+\bv\vdot\pdv{\br}-\frac{1}{m_k}\pdv{U(r)}{\br}\vdot\pdv{\bv}}
-    \psi_k(\bv)f_k\pqty{\br,\bv,t}=\sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv).
+    \int\dd{\bv}\pqty{\pdv{t}+\bv\vdot\pdv{\br}+\bw\vdot\pdv{\bv}}
+    \psi_k(\bv)f_k\pqty{\br,\bv,t}=\sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv),
 \end{equation}
-
+where
+\begin{equation}
+    \bw = -\frac{1}{m_k}\pdv{U(r)}{\br}.
+\end{equation}
 The RHS of this equation can be written as a difference of gain and loss terms, without a loss
 of generality
 \begin{equation}
-    \sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv)=\mathcal{G}(\psi_k)-\mathcal{L}(\psi_k),
+    \sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv)=\mathcal{G}(\psi_k)-\mathcal{L}(\psi_k)=
+    \ltx{\avg{\pdv{t}\pqty{n_k\psi_k}}}{coll},
 \end{equation}
 where the exact forms of the gain and loss functions are obtained only after specifying the
 distribution function $f_k\pqty{\br,\bv,t}$. If the physical characteristic specified by the function
 $\psi_k(\bv)$ is conserved after a collision, the gain and loss terms are identical and the RHS
-vanish.
-
-Now, we deal with the LHS. First, let us rewrite the tensor terms in an index notation forms, and
-use greek letters $\alpha,\beta,\gamma$ to denote the coordinate indices. Also, we invoke the
-summation notation convention for the repeated indices. Now, the hydrodynamic balance equation
-reads
+vanish. The piece by piece integration gives us the next generalized form for balance equations
+of the physical value $\psi_k(\bv)$
 \begin{equation}
-    \int\dd{\bv}\psi_k\pqty{\ia{v}}
-    \pqty{\pdv{t}+\ib{v}\pdv{\ib{r}}-\frac{1}{m_k}\pdv{U(r)}{\ib{r}}\pdv{\ib{v}}}
-    f_k(\ib{r},\ib{v},t)=\mathcal{G}_{\alpha}(\psi_k)-\mathcal{L}_{\alpha}(\psi_k).
+    \pdv{t}\int\dd{\bv}\psi_k\pqty{\ib{v}}f_k+
+    \pdv{\ia{r}}\int\dd{\bv}\psi_k\pqty{\ib{v}}\ia{v}f_k-
+    \ib{w}\int\dd{\bv}\pdv{\psi_k\pqty{\ia{v}}}{\ia{v}}f_k=
+    \ltx{\avg{\pdv{t}\pqty{n_k\psi_k}}}{coll},
 \end{equation}
-Since we assume that $\psi_k$ is a function of only the velocity, we can write
-\begin{equation}
-    \begin{split}
-        \psi_k\ib{v}\pdv{f_k}{\ib{r}}&=\psi_k\pdv{\ib{r}}\pqty{\ib{v}f_k},\\
-        \psi_k\ib{w}\pdv{f_k}{\ib{v}}&=\ib{w}\pdv{\ib{v}}\pqty{\psi_kf_k}-
-        f_k\ib{w}\pdv{\psi_k}{\ib{v}},
-    \end{split}
-\end{equation}
-where $\ib{w}=-m_k^{-1}\pd{U}/\pd{\ib{r}}$ is the acceleration vector.
-Integrating these terms over velocity yields
+where we use the index notation forms, and greek letters $\alpha,\beta,\gamma$ denote the
+coordinate indices. Also, we invoke the summation notation convention for the repeated indices.
+By plugging in the functions $\psi_k=m_k$, $\psi_k=m_k\ib{v}$ and $\psi_k=m_kv^2/2$, we obtain
+the balance equations for the mass density, momentum density and energy density
 \begin{equation}
     \begin{split}
-        \int\dd{\bv}\psi_k\pdv{f_k}{t}&=\psi_k\pdv{t}\int\dd{\bv}f_k=\psi_k\pdv{n_k}{t},\\
-        \int\dd{\bv}\psi_k\ib{v}\pdv{f_k}{\ib{r}}&=\psi_k\pdv{\ib{r}}\int\dd{\bv}\ib{v}f_k=
-        \psi_k\pdv{\ib{r}}\pqty{n_k\ib{u}},\\
-        \int\dd{\bv}\psi_k\ib{w}\pdv{f_k}{\ib{v}}&=
-        \ib{w}\int\dd{\bv}\pdv{\ib{v}}\pqty{\psi_kf_k}-
-        \ib{w}\int\dd{\bv}f_k\pdv{\psi_k}{\ib{v}}=-\ib{w}\int\dd{\bv}f_k\pdv{\psi_k}{\ib{v}}.
+        \pdv{\rho_k}{t}+\pdv{\ia{r}}\pqty{\rho_k\ia{u}} &=\ltx{\avg{\pdv{\rho_k}{t}}}{coll},\\
+        \rho_k\pdv{\ib{u}}{t}+\rho_k\ia{u}\pdv{\ib{u}}{\ia{r}}+\pdv{\iab{P}}{\ia{r}}&=
+        \rho_k\ib{w}-\ib{u}\ltx{\avg{\pdv{\rho_k}{t}}}{coll},\\
+        \pdv{t}\pqty{\frac{3}{2}n_kT_k}+\pdv{\ia{r}}\pqty{\frac{3}{2}n_kT_k\ib{u}}+
+        \pdv{\ia{q}}{\ia{r}}+\iab{P}\pdv{\ib{u}}{\ia{r}}&=
+        \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll}+
+        \frac{u^2}{2}\ltx{\avg{\pdv{\rho_k}{t}}}{coll}.
     \end{split}
 \end{equation}
-In the last integral, we used the divergence theorem and the fact that the distribution function
-vanishes at infinite velocities. Now, the hydrodynamic balance equation reads
+
+To proceed further, we assume certain condition in our system. First condition is that the
+mass density and temperature fields are homogeneous in space, hence their gradients vanish.
+This also implies that the heat flux is absent. Second condition is that the mean velocity
+field is stationary but has a steady spacial gradient. These conditions give us
 \begin{equation}
-    \psi_k\bqty{\pdv{n_k}{t}+\pdv{\ib{r}}\pqty{n_k\ib{u}}}-
-    \ib{w}\int\dd{\bv}f_k\pdv{\psi_k}{\ib{v}}=
-    \mathcal{G}_\alpha(\psi_k)-\mathcal{L}_{\alpha}(\psi_k).
+    \pdv{\rho_k}{\ia{r}}=\bnull,\quad\pdv{T_k}{\ia{r}}=\bnull,\quad\ia{q}=\bnull.
+    \quad\pdv{\ia{u}}{t}=0,
+\end{equation}
+
+Using these conditions, our balance equations simplify into
+\begin{equation}
+    \begin{split}
+        \pdv{\rho_k}{t}+\rho_k\pdv{\ia{u}}{\ia{r}} &=\ltx{\avg{\pdv{\rho_k}{t}}}{coll},\\
+        \rho_k\ia{u}\pdv{\ib{u}}{\ia{r}}+\pdv{\iab{P}}{\ia{r}}&=
+        \rho_k\ib{w}-\ib{u}\ltx{\avg{\pdv{\rho_k}{t}}}{coll},\\
+        \pdv{t}\pqty{\frac{3}{2}n_kT_k}+\frac{3}{2}n_kT_k\pdv{\ia{u}}{\ia{r}}+
+        \iab{P}\pdv{\ib{u}}{\ia{r}}&=
+        \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll}+
+        \frac{u^2}{2}\ltx{\avg{\pdv{\rho_k}{t}}}{coll}.
+    \end{split}
+\end{equation}
+
+Next, we can assume a zero divergence mean velocity field, which yields the balance
+equations in the next form
+\begin{equation}
+    \begin{split}
+        \pdv{\rho_k}{t} &= \ltx{\avg{\pdv{\rho_k}{t}}}{coll},\\
+        \pdv{t}\pqty{\frac{3}{2}n_kT_k} &= -\iab{P}\pdv{\ib{u}}{\ia{r}}+
+        \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll}+
+        \frac{u^2}{2}\ltx{\avg{\pdv{\rho_k}{t}}}{coll}.
+    \end{split}
+\end{equation}
+To close the balance equations, we have to write the pressure tensor in terms of the macroscopic
+fields $\rho_k$, $\bu$ and $T_k$. In the simplest form, we can write the empirical dependence
+\begin{equation}
+    \iab{P} = p\iab{\delta}-\eta\pqty{\pdv{\ia{u}}{\ib{r}}+\pdv{\ib{u}}{\ia{r}}
+        -\frac{2}{3}\iab{\delta}\pdv{\ig{u}}{\ig{r}}},
+\end{equation}
+where $p$ is the hydrostatic pressure and $\eta$ is the shear viscosity coefficient. It is shown
+that the hydrostatic pressure depends on the granular temperature through the equation of state
+\begin{equation}
+    p = nT\pqty{1+\frac{1+\eps}{3}\pi n\sigma^{3}g_2\pqty{\sigma}}.
+\end{equation}
+Writing a similar form for te polydisperse system, and assuming the zero divergence mean velocity
+field, we have for the pressure tensor
+\begin{equation}
+    \iab{P}=n_kT_k(1+\phi_k)\iab{\delta}-\eta\pqty{\pdv{\ia{u}}{\ib{r}}+\pdv{\ib{u}}{\ia{r}}},
+\end{equation}
+and write the final form of the balance equations as
+\begin{equation}
+    \begin{split}
+        \pdv{\rho_k}{t} &= \ltx{\avg{\pdv{\rho_k}{t}}}{coll},\\
+        \pdv{t}\pqty{\frac{3}{2}n_kT_k} &=
+        \eta_k\bqty{\pdv{\ia{u}}{\ib{r}}\pdv{\ib{u}}{\ia{r}}+\pdv{\ib{u}}{\ia{r}}\pdv{\ib{u}}{\ia{r}}}+
+        \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll}+
+        \frac{u^2}{2}\ltx{\avg{\pdv{\rho_k}{t}}}{coll}.
+    \end{split}
+\end{equation}
+Here we used
+\begin{equation}
+    \iab{\delta}\pdv{\ib{u}}{\ia{r}}=\pdv{\ia{u}}{\ia{r}}=0.
 \end{equation}
 
 
-\subsection{Number density balance equations}
+
+
+
+
+
+
+
+
+
+
 
 
 
