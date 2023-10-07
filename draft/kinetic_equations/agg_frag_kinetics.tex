@@ -273,35 +273,35 @@ can be defined as velocity moments of the distribution function
 The time evolution of the distribution functions obey the Boltzmann equations
 \begin{equation}\label{eq:kinetic_equation_generic}
     \pqty{\pdv{t}+\bv\vdot\pdv{\br}-\frac{1}{m_k}\pdv{U(r)}{\br}\vdot\pdv{\bv}}
-    f_k\pqty{\br,\bv,t}=\sum_{j}\mathcal{I}\pqty{f_k,f_j},
+    f_k\pqty{\br,\bv,t}=\mathcal{I}_k\pqty{f_i,f_j},
 \end{equation}
 where $U(r)$ is the potential of the external gravitational field. The LHS
 of the Boltzmann equation describes the change over time in the function $f_k$ due to the
 local flow of the particles, subject to external driving. The function
-$\mathcal{I}\pqty{f_k,f_j}$ on the RHS is the \emph{collision integral}, which
-describes the change over time in the function $f_k$ due to collisions of particles $k$
+$\mathcal{I}\pqty{f_i,f_j}$ on the RHS is the \emph{collision integral}, which
+describes the change over time in the function $f_k$ due to collisions of particles $i$
 with particles of size $j$. Since we have three types of collisional outcomes, the
 collision integral $\mathcal{I}$ has to take into account all these types of outcomes.
 Without the loss of generality, we can write the collision integral as a sum of three
 functions
 \begin{equation}
-    \mathcal{I}\pqty{f_k,f_j}=\utx{\mathcal{I}}{agg}\pqty{f_k,f_j}+
-    \utx{\mathcal{I}}{res}\pqty{f_k,f_j}+\utx{\mathcal{I}}{frag}\pqty{f_k,f_j},
+    \mathcal{I}_k\pqty{f_i,f_j}=\utx{\mathcal{I}_k}{agg}\pqty{f_i,f_j}+
+    \utx{\mathcal{I}_k}{res}\pqty{f_i,f_j}+\utx{\mathcal{I}_k}{frag}\pqty{f_i,f_j},
 \end{equation}
 each corresponding to the specific type of collision.
 
 \subsection{General structure of collision integrals}
-Let us consider a collision integral $\mathcal{J}\pqty{f_k,f_j}$ for a generalized
+Let us consider a collision integral $\mathcal{J}\pqty{f_i,f_j}$ for a generalized
 collision. If we consider a small volume in the phase space $\dd{\Gamma}$
-around a point $\pqty{\br,\bv}$, the term $f_k\pqty{\br,\bv,t}\dd{\Gamma}$ gives us
-the number of particles of size $k$ in that volume at time $t$. The collision integral
+around a point $\pqty{\br,\bv}$, the term $f_i\pqty{\br,\bv,t}\dd{\Gamma}$ gives us
+the number of particles of size $i$ in that volume at time $t$. The collision integral
 shows how many particles leave and enter this phase space volume per unit time, due
 to collisions only. So, the collision integral contains two terms, the gain term, which
 shows the number of particles that enter the phase space volume per unit time, and the
 loss terms, which shows the number of particles that leave this phase space volume per
 unit time
 \begin{equation}
-    \mathcal{J}\pqty{f_k,f_j}=\mathcal{G}\pqty{f_k,f_j}-\mathcal{L}\pqty{f_k,f_j}.
+    \mathcal{J}_k\pqty{f_i,f_j}=\mathcal{G}_k\pqty{f_i,f_j}-\mathcal{L}_k\pqty{f_i,f_j}.
 \end{equation}
 
 These terms are proportional to the number of collisions happening in unit volume per unit
@@ -315,9 +315,9 @@ Now, integrating over all possible pairs of velocities and mass combinations, we
 the gain and loss terms as
 \begin{equation}
     \begin{split}
-        \mathcal{G}\pqty{f_k,f_j}&=\sum_{i}\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}
+        \mathcal{G}_k\pqty{f_i,f_j}&=\sum_{i,j}\sigma_{ij}^2\int\dd{\bv_i}\dd{\bv_j}
         \int\dd{\Omega}P_k\pqty{\bv_k\vert\bv_i,\bv_j}f_i\pqty{\bv_i,t}f_j\pqty{\bv_j,t},\\
-        \mathcal{L}\pqty{f_k,f_j}&=\sum_{i}\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}
+        \mathcal{L}_k\pqty{f_i,f_j}&=\sum_{i,j}\sigma_{ij}^2\int\dd{\bv_i}\dd{\bv_j}
         \int\dd{\Omega}\delta_{k,i}\delta\pqty{\bv_i-\bv_k}f_i\pqty{\bv_i,t}f_j\pqty{\bv_j,t}.
     \end{split}
 \end{equation}
@@ -325,7 +325,7 @@ The delta functions in the loss term make sure that one of the collision partner
 the considered particle of size $k$ and velocity $\bv_k$. Now, the collision integral for a
 general type of collision is written as
 \begin{equation}
-    \mathcal{I}\pqty{f_k,f_j}=\sum_j\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}\int\dd{\Omega}
+    \mathcal{I}_k\pqty{f_i,f_j}=\sum_{i,j}\sigma_{ij}^2\int\dd{\bv_i}\dd{\bv_j}\int\dd{\Omega}
     \bqty{P_k\pqty{\bv_k\vert\bv_i,\bv_j}-\delta_{k,i}\delta\pqty{\bv_i-\bv_k}}f_if_j,
 \end{equation}
 where
@@ -338,7 +338,7 @@ to make sure that the integration domains are specified as well. Usually, this d
 the function of the relative velocity $\mathcal{D}(\bg)$. Hence, the specific collision
 integrals are written as
 \begin{equation}
-    \utx{\mathcal{I}}{type}\pqty{f_k,f_j}=\sum_j\sigma_{ij}\int\dd{\bv_i}\dd{\bv_j}
+    \utx{\mathcal{I}_k}{type}\pqty{f_i,f_j}=\sum_{i,j}\sigma_{ij}^2\int\dd{\bv_i}\dd{\bv_j}
     \utx{\mathcal{D}}{type}(\bg)\int\dd{\Omega}\bqty{\utx{P_k}{type}
         \pqty{\bv_k\vert\bv_i,\bv_j}-\delta_{k,i}\delta\pqty{\bv_i-\bv_k}}f_if_j,
 \end{equation}
@@ -393,7 +393,7 @@ characteristics of the system. We can multiply the kinetic equation (\ref{eq:kin
 by this function, and integrate over the velocity
 \begin{equation}
     \int\dd{\bv}\pqty{\pdv{t}+\bv\vdot\pdv{\br}+\bw\vdot\pdv{\bv}}
-    \psi_k(\bv)f_k\pqty{\br,\bv,t}=\sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv),
+    \psi_k(\bv)f_k\pqty{\br,\bv,t}=\int\dd{\bv}\mathcal{I}_k\pqty{f_i,f_j}\psi_k(\bv),
 \end{equation}
 where
 \begin{equation}
@@ -402,7 +402,7 @@ where
 The RHS of this equation can be written as a difference of gain and loss terms, without a loss
 of generality
 \begin{equation}
-    \sum_{j}\int\dd{\bv}\mathcal{I}\pqty{f_k,f_j}\psi_k(\bv)=\mathcal{G}(\psi_k)-\mathcal{L}(\psi_k)=
+    \int\dd{\bv}\mathcal{I}_k\pqty{f_i,f_j}\psi_k(\bv)=\mathcal{G}(\psi_k)-\mathcal{L}(\psi_k)=
     \ltx{\avg{\pdv{t}\pqty{n_k\psi_k}}}{coll},
 \end{equation}
 where the exact forms of the gain and loss functions are obtained only after specifying the
