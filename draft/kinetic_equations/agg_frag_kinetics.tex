@@ -483,19 +483,58 @@ field, we have for the pressure tensor
 and write the final form of the balance equations as
 \begin{equation}
     \begin{split}
-        \pdv{\rho_k}{t} &= \ltx{\avg{\pdv{\rho_k}{t}}}{coll},\\
+        \pdv{n_k}{t} &= \ltx{\avg{\pdv{n_k}{t}}}{coll},\\
         \pdv{t}\pqty{\frac{3}{2}n_kT_k} &=
         \eta_k\bqty{\pdv{\ia{u}}{\ib{r}}\pdv{\ib{u}}{\ia{r}}+\pdv{\ib{u}}{\ia{r}}\pdv{\ib{u}}{\ia{r}}}+
         \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll}+
-        \frac{u^2}{2}\ltx{\avg{\pdv{\rho_k}{t}}}{coll}.
+        \frac{m_ku^2}{2}\ltx{\avg{\pdv{n_k}{t}}}{coll}.
     \end{split}
 \end{equation}
 Here we used
 \begin{equation}
     \iab{\delta}\pdv{\ib{u}}{\ia{r}}=\pdv{\ia{u}}{\ia{r}}=0.
 \end{equation}
+Since
+\begin{equation}
+    \pdv{t}\pqty{\frac{3}{2}n_kT_k}=\frac{3}{2}n_k\pdv{T_k}{t}+
+    \frac{3}{2}T_k\pdv{n_k}{t}=\frac{3}{2}n_k\pdv{T_k}{t}+
+    \frac{3}{2}T_k\ltx{\avg{\pdv{n_k}{t}}}{coll},
+\end{equation}
+we can rewrite the hydrodynamic balance equations as 
+\begin{equation}
+    \begin{split}
+        \pdv{n_k}{t} &= \ltx{\avg{\pdv{n_k}{t}}}{coll},\\
+        \pdv{T_k}{t} &=
+        \frac{2\eta_k}{3n_k}\bqty{\pdv{\ia{u}}{\ib{r}}\pdv{\ib{u}}{\ia{r}}+
+        \pdv{\ib{u}}{\ia{r}}\pdv{\ib{u}}{\ia{r}}}+
+        \frac{2}{3n_k}\ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll}+
+        \frac{2}{3n_k}\pqty{\frac{m_ku^2}{2}-\frac{3T_k}{2}}\ltx{\avg{\pdv{n_k}{t}}}{coll}.
+    \end{split}
+\end{equation}
 
+\section{Calculating collision integrals with Maxwellian distribution functions}
+Now we calculate the collisional terms for the number density and temperature 
+evolutions assuming the Maxwellian distribution function
+\begin{equation}
+    f_k\pqty{\bv,t}=\pqty{\frac{n_k}{2\pi T_k}}^{3/2}\cdot
+    \exp\pqty{-\frac{m_kv^2}{2T_k}},
+\end{equation}
+where the time dependence of the distribution function comes from the evolution
+of the parameters $n_k(t)$ and $T_k(t)$.
 
+Each of the collision terms are obtained by solving the next integrals
+\begin{equation}
+    \ltx{\avg{\pdv{n_k}{t}}}{coll} = \int\dd{\bv_k}\utx{\mathcal{I}}{agg}(\bv_k)+
+    \int\dd{\bv_k}\utx{\mathcal{I}}{res}(\bv_k)+
+    \int\dd{\bv_k}\utx{\mathcal{I}}{frag}(\bv_k),
+\end{equation}
+and
+\begin{equation}
+    \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll} = 
+    \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{\mathcal{I}}{agg}(\bv_k)+
+    \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{\mathcal{I}}{res}(\bv_k)+
+    \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{\mathcal{I}}{frag}(\bv_k).
+\end{equation}
 
 
 
