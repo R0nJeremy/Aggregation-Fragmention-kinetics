@@ -500,20 +500,20 @@ Since
     \frac{3}{2}T_k\pdv{n_k}{t}=\frac{3}{2}n_k\pdv{T_k}{t}+
     \frac{3}{2}T_k\ltx{\avg{\pdv{n_k}{t}}}{coll},
 \end{equation}
-we can rewrite the hydrodynamic balance equations as 
+we can rewrite the hydrodynamic balance equations as
 \begin{equation}
     \begin{split}
         \pdv{n_k}{t} &= \ltx{\avg{\pdv{n_k}{t}}}{coll},\\
         \pdv{T_k}{t} &=
         \frac{2\eta_k}{3n_k}\bqty{\pdv{\ia{u}}{\ib{r}}\pdv{\ib{u}}{\ia{r}}+
-        \pdv{\ib{u}}{\ia{r}}\pdv{\ib{u}}{\ia{r}}}+
+            \pdv{\ib{u}}{\ia{r}}\pdv{\ib{u}}{\ia{r}}}+
         \frac{2}{3n_k}\ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll}+
         \frac{2}{3n_k}\pqty{\frac{m_ku^2}{2}-\frac{3T_k}{2}}\ltx{\avg{\pdv{n_k}{t}}}{coll}.
     \end{split}
 \end{equation}
 
 \section{Calculating collision integrals with Maxwellian distribution functions}
-Now we calculate the collisional terms for the number density and temperature 
+Now we calculate the collisional terms for the number density and temperature
 evolutions assuming the Maxwellian distribution function
 \begin{equation}
     f_k\pqty{\bv,t}=\pqty{\frac{n_k}{2\pi T_k}}^{3/2}\cdot
@@ -524,27 +524,108 @@ of the parameters $n_k(t)$ and $T_k(t)$.
 
 Each of the collision terms are obtained by solving the next integrals
 \begin{equation}
-    \ltx{\avg{\pdv{n_k}{t}}}{coll} = \int\dd{\bv_k}\utx{\mathcal{I}}{agg}(\bv_k)+
+    \ltx{\avg{\pdv{n_k}{t}}}{coll} =
+    \int\dd{\bv_k}\utx{\mathcal{I}}{agg}(\bv_k)+
     \int\dd{\bv_k}\utx{\mathcal{I}}{res}(\bv_k)+
     \int\dd{\bv_k}\utx{\mathcal{I}}{frag}(\bv_k),
 \end{equation}
 and
 \begin{equation}
-    \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll} = 
+    \ltx{\avg{\pdv{t}\pqty{\frac{3}{2}n_kT_k}}}{coll} =
     \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{\mathcal{I}}{agg}(\bv_k)+
     \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{\mathcal{I}}{res}(\bv_k)+
     \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{\mathcal{I}}{frag}(\bv_k).
 \end{equation}
 
-
-
-
-
-
-
-
-
-
+\subsection{Fragmentation integrals}
+We have two fragmentation type collision integrals
+\begin{equation}
+    \lutx{I}{n}{frag} = \int\dd{\bv_k}\utx{\mathcal{I}}{frag}(\bv_k),\qquad
+    \lutx{I}{T}{frag} = \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{\mathcal{I}}{frag}(\bv_k),
+\end{equation}
+or writing explicitly
+\begin{equation}
+    \begin{split}
+        \lutx{I}{n}{frag} &= \sum_{i,j}\sigma_{ij}^2\int\dd{\bv_k}\dd{\bv_i}\dd{\bv_j}
+        \Theta\pqty{E_n-\ltx{E}{frag}}\int\dd{\Omega}
+        \bqty{\utx{P}{frag}_k(\bv_k\vert,\bv_i,\bv_j)-\delta_{k,i}\delta(\bv_i-\bv_k)}
+        f_{ij}\pqty{\bv_i,\bv_j},\\
+        \lutx{I}{T}{frag} &= \sum_{i,j}\sigma_{ij}^2\int\dd{\bv_k}\dd{\bv_i}\dd{\bv_j}
+        \frac{m_kv_k^2}{2}\Theta\pqty{E_n-\ltx{E}{frag}}\int\dd{\Omega}
+        \bqty{\utx{P}{frag}_k(\bv_k\vert,\bv_i,\bv_j)-\delta_{k,i}\delta(\bv_i-\bv_k)}
+        f_{ij}\pqty{\bv_i,\bv_j},
+    \end{split}
+\end{equation}
+where
+\begin{equation}
+    \utx{P}{frag}_k\pqty{\bv_k\vert\bv_i,\bv_j}=
+    \delta_{k,1}\frac{i+j}{4\pi}\int\dd{\be}\delta\pqty{\bv_k-\bV-v'\be},
+    \qquad E_n=\frac{\mu g_n^2}{2}.
+\end{equation}
+Since $\dd{\bv_i}\dd{\bv_j}=\dd{\bg}\dd{\bV}$, we can change variables and write
+\begin{equation}
+    \begin{split}
+        \lutx{I}{n}{frag} &= \sum_{i,j}\sigma_{ij}^2\int\dd{\bv_k}\dd{\bg}\dd{\bV}
+        \Theta\pqty{E_n-\ltx{E}{frag}}\int\dd{\Omega}
+        \bqty{\utx{P}{frag}_k(\bv_k\vert,\bv_i,\bv_j)-\delta_{k,i}\delta(\bv_k-\bv_i)}
+        f_{ij}\pqty{\bg,\bV},\\
+        \lutx{I}{T}{frag} &= \sum_{i,j}\sigma_{ij}^2\int\dd{\bv_k}\dd{\bg}\dd{\bV}
+        \frac{m_kv_k^2}{2}\Theta\pqty{E_n-\ltx{E}{frag}}\int\dd{\Omega}
+        \bqty{\utx{P}{frag}_k(\bv_k\vert,\bv_i,\bv_j)-\delta_{k,i}\delta(\bv_k-\bv_i)}
+        f_{ij}\pqty{\bg,\bV}.
+    \end{split}
+\end{equation}
+Let us write the gain terms explicitly
+\begin{equation}
+    \begin{split}
+        \lutx{G}{n}{frag} &= \sum_{i,j}\sigma_{ij}^2\int\dd{\bg}\dd{\bV}
+        f_{ij}\pqty{\bg,\bV}\int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}
+        \int\dd{\bv_k}\utx{P}{frag}_k(\bv_k\vert,\bv_i,\bv_j),\\
+        \lutx{G}{T}{frag} &= \sum_{i,j}\sigma_{ij}^2\int\dd{\bg}\dd{\bV}
+        f_{ij}\pqty{\bg,\bV}\int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}
+        \int\dd{\bv_k}\frac{m_kv_k^2}{2}\utx{P}{frag}_k(\bv_k\vert,\bv_i,\bv_j).
+    \end{split}
+\end{equation}
+By plugging in the debris distribution function for $P_k$, we have
+\begin{equation}
+    \begin{split}
+        \lutx{G}{n}{frag} &= \sum_{i,j}\frac{i+j}{4\pi}\sigma_{ij}^2\int\dd{\bg}\dd{\bV}
+        f_{ij}\pqty{\bg,\bV}\int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}
+        \int\dd{\be}\int\dd{\bv_1}\delta\pqty{\bv_1-\bV-v'\be},\\
+        \lutx{G}{T}{frag} &= \sum_{i,j}\frac{i+j}{4\pi}\sigma_{ij}^2\int\dd{\bg}\dd{\bV}
+        f_{ij}\pqty{\bg,\bV}\int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}
+        \int\dd{\be}\int\dd{\bv_1}\frac{m_1v_1^2}{2}\delta\pqty{\bv_1-\bV-v'\be},
+    \end{split}
+\end{equation}
+or
+\begin{equation}
+    \begin{split}
+        \lutx{G}{n}{frag} &= \sum_{i,j}(i+j)\sigma_{ij}^2\int\dd{\bg}\dd{\bV}
+        f_{ij}\pqty{\bg,\bV}\int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}},\\
+        \lutx{G}{T}{frag} &= \frac{m_1}{2}\sum_{i,j}(i+j)\sigma_{ij}^2\int\dd{\bg}\dd{\bV}
+        f_{ij}\pqty{\bg,\bV}\int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}
+        \pqty{V^2+v'^2},
+    \end{split}
+\end{equation}
+with $v'=q\cdot g_n$, where $q=\eps\sqrt{ij}/(i+j)$. Expanding the angular integral, we
+have
+\begin{equation}
+    \begin{split}
+        \int\dd{\Omega} &= \int\dd{\bn}\Theta\pqty{-\bg\vdot\bn}\abs{\bg\vdot\bn}=\pi g,\\
+        \int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}
+        &=\int\dd{\bn}\Theta\pqty{-\bg\vdot\bn}\abs{\bg\vdot\bn}
+        \Theta\pqty{(\bg\vdot\bn)^2-\ltx{g^2}{frag}}=
+        \pi g\cdot\pqty{1-\frac{\ltx{g^2}{frag}}{g^2}},\\
+        \int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}\pqty{V^2+q^2g_n^2} &=
+        \pi gV^2\cdot\pqty{1-\frac{\ltx{g^2}{frag}}{g^2}}+
+        q^2\int\dd{\Omega}\Theta\pqty{E_n-\ltx{E}{frag}}g_n^2=\\
+        &=\pi gV^2\cdot\pqty{1-\frac{\ltx{g^2}{frag}}{g^2}}+
+        q^2\int\dd{\bn}\Theta\pqty{-\bg\vdot\bn}\abs{\bg\vdot\bn}^3
+        \Theta\pqty{(\bg\vdot\bn)^2-\ltx{g^2}{frag}}=\\
+        &=\pi gV^2\cdot\pqty{1-\frac{\ltx{g^2}{frag}}{g^2}}+
+        \frac{\pi}{2}q^2g^3\cdot\pqty{1-\frac{\ltx{g^4}{frag}}{g^4}}.
+    \end{split}
+\end{equation}
 
 
 
